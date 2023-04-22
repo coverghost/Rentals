@@ -12,13 +12,6 @@ const Home = () => {
   };
   return (
     <>
-      <div>
-        <h1>Home Us</h1>
-        <p>
-          We are a company that specializes in providing high-quality products
-          and services.
-        </p>
-      </div>
       <div className="picker_container">
         <div>
           <input
