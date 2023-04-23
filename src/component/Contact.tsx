@@ -1,5 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import api from "../services/api";
 const Contact = () => {
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    fetch(api+'/data')
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message));
+  }, []);
+  console.log("api--->>>", message);
   return (
     <>
       <div>
