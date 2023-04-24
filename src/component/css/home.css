@@ -26,7 +26,35 @@ input[type] {
   margin-top: 1px;
 }
 
-
+.location-picker {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333333;
+  padding: 12px;
+  background-color: #ffffff;
+  padding: 10px;
+  margin-left: 15px;
+  width: 200px;
+  height: 50px;
+}
+input[type] {
+  width: auto;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  line-height: 20px;
+  min-height: 28px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+  background: rgb(251, 251, 251);
+  transition: all 0.1s ease 0s;
+  margin: 8px;
+  margin-top: 1px;
+  
+}
 
 .date-time-picker:focus {
   outline: none;
@@ -50,28 +78,41 @@ input[type] {
   text-align: center;
   padding: 30px;
   height: 6vh;
-  width: 130vh;
+  width: 100vh;
   border: 2px solid black;
   border-radius: 50px;
   position: absolute;
   top: 250px;
   left: 50%;
   transform: translateX(-50%);
-  float: left;
+  box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.233);
 }
 
-.submit_btn{
-    display: inline-block;
-    outline: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: 55px;
-    height: 45px;
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 14px 24px;
-    border: none;
-    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
-    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
-    color: #fff;
+.submit_btn {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 55px;
+  height: 45px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14px 24px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
+    -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  color: #fff;
+}
+
+.show-data{
+  /* display: flex;  */
+  justify-content: center;
+  text-align: center;
+  margin-top: 450px;
 }

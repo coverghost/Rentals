@@ -34,8 +34,6 @@ const Navbar = () => {
         </button>
       </div>
       {showPopup && (
-      <div className="login-container">
-        
           <div className="popup-container">
             <div className="popup">
               <button onClick={togglePopup} className="button">
@@ -44,7 +42,6 @@ const Navbar = () => {
               <Login />
             </div>
           </div>
-      </div>
         )}
     </>
   );
