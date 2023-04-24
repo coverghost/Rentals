@@ -1,0 +1,39 @@
+.ul-iteams {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ul-items-li {
+  flex-basis: 23%;
+  text-align: center;
+  margin-left: 30px;
+}
+
+.option-img {
+  height: 80px;
+  width: 80px;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 70px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.option-img:hover {
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  height: 85px;
+  width: 85px;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 70px;
+  background-color: rgba(153, 240, 211, 0.349);
+  transition: 0.2s ease-in-out;
+}
+.service-name{
+text-decoration: none;
+color: rgb(0, 0, 0);
+font-weight: 600;
+font-size: 20px;
+}
