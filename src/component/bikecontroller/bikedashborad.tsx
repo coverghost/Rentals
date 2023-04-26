@@ -38,6 +38,12 @@ const Bikedashboard = () => {
     <>
       <div className="bike-dashboard-heading">
         <h1>bike Dashboard</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse cum hic
+          nihil sequi nulla dolore, ut quam! Tempore, natus? Nesciunt neque
+          atque cumque maiores veniam, eveniet accusantium harum dolorem
+          asperiores?
+        </p>
       </div>
       <div className="card-area">
         {items.map((item, index) => (
