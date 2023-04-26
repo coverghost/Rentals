@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import "../css/bike.css";
 import Display from "../image/display";
 import api from "../../services/api";
-
+import Bikedashboard from "../bikecontroller/bikedashborad";
 
 interface Item {
   id: number;
   name: string;
 }
 const currentDate = new Date();
-const localDate = currentDate.toLocaleString('sv').replace(',', '');
-const datetimeValue = localDate.replace(' ', 'T');
+const localDate = currentDate.toLocaleString("sv").replace(",", "");
+const datetimeValue = localDate.replace(" ", "T");
 const Bike = () => {
   const [selectedDateTime, setSelectedDateTime] = useState(datetimeValue);
   const [selectedEndDate, setSelectedEndDate] = useState("");
@@ -51,43 +51,52 @@ const Bike = () => {
       .catch((error) => console.error(error));
   }, []);
 
-  console.log("selectedDateTime--->>>",selectedDateTime)
+  console.log("selectedDateTime--->>>", selectedDateTime);
   return (
     <>
-      <div className="picker_container">
-        <div>
-          <select
-            className="location-picker"
-            value={`${selectedItem?.id},${selectedLocation}`}
-            onChange={handleLocationChange}
-          >
-            <option value="">Location...</option>
-            {items.map((item) => (
-              <option key={item.id} value={`${item.id},${item.name}`}>
-                {item.name}
-              </option>
-            ))}
-          </select>
+      <div style={{backgroundColor:"red"}}>
+        <div className="picker_container">
+          <div>
+            <select
+              className="location-picker"
+              value={`${selectedItem?.id},${selectedLocation}`}
+              onChange={handleLocationChange}
+            >
+              <option value="">Location...</option>
+              {items.map((item) => (
+                <option key={item.id} value={`${item.id},${item.name}`}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <input
+              className="date-time-picker"
+              type="datetime-local"
+              id="date-time-picker"
+              value={selectedDateTime}
+              onChange={handleDateTimeChange}
+            />
+            <input
+              className="date-time-picker"
+              type="datetime-local"
+              id="date-picker"
+              value={
+                selectedEndDate === "Date"
+                  ? new Date(selectedEndDate).toISOString().slice(0, 16)
+                  : selectedEndDate
+              }
+              onChange={handleEndDateChange}
+            />
+          </div>
+          <button className="submit_btn" onClick={handleSubmit}>
+            SUBMIT
+          </button>
         </div>
-        <div>
-          <input
-            className="date-time-picker"
-            type="datetime-local"
-            id="date-time-picker"
-            value={selectedDateTime}
-            onChange={handleDateTimeChange}
-          />
-          <input
-            className="date-time-picker"
-            type="datetime-local"
-            id="date-picker"
-            value={selectedEndDate === "Date" ?(new Date(selectedEndDate)).toISOString().slice(0, 16) : selectedEndDate}
-            onChange={handleEndDateChange}
-          />
-        </div>
-        <button className="submit_btn" onClick={handleSubmit}>
-          SUBMIT
-        </button>
+      </div>
+      <div className="bike-Dashboard">
+        <Bikedashboard />
       </div>
     </>
   );

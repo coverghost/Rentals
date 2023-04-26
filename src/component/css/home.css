@@ -1,11 +1,33 @@
-.banner-image{
+.home-body {
+  /* background-color: red; */
   max-width: 100%;
-    /* border: 2px solid rgb(255, 0, 0); */
+  /* display: flex; */
+  justify-content: center;
+  text-align: center;
+}
+.banner-image {
+  /* border: 2px solid rgb(255, 0, 0); */
+  max-width: 100%;
 
 }
 .display-part{
+  width: 130vh;
+  margin-top: 350px;
+  height: 500px;
   display: flex;
   justify-content: center;
-  text-align: center; 
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  border-radius: 400px;
+  overflow: hidden;
+  /* box-shadow: 0 0 10px rgba(0,0,0,0.5); */
+  box-shadow: 0px 6px 39px rgba(0,0,33,61.5);
+}
+.display{
+  margin-top: -300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   background-color: rgb(255, 255, 255);
 }
