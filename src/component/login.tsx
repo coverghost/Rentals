@@ -70,7 +70,7 @@ function LoginForm() {
           <h2 className="heading">{isLogin ? "Login" : "Sign Up"}</h2>
           {isLogin ? (
             <form onSubmit={handleSubmit} className="form-group">
-              <div className="form-group">
+              <div className="form-group1">
                 <input
                   type="phone"
                   id="phone"
@@ -81,7 +81,7 @@ function LoginForm() {
                 />
                 {error && <p className="error_msg">{error}</p>}
               </div>
-              <div className="form-group">
+              <div className="form-group1">
                 <input
                   type="password"
                   id="password"
@@ -97,7 +97,7 @@ function LoginForm() {
             </form>
           ) : (
             <form onSubmit={handleSubmit} className="form-group">
-              <div className="form-group">
+              <div className="form-group1">
                 <input
                   type="text"
                   id="name"
@@ -107,7 +107,7 @@ function LoginForm() {
                   placeholder="Name"
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group1">
                 <input
                   type="text"
                   id="phone"
@@ -122,7 +122,7 @@ function LoginForm() {
                   </p>
                 )}
               </div>
-              <div className="form-group">
+              <div className="form-group1">
                 <input
                   type="password"
                   id="password"
@@ -132,7 +132,7 @@ function LoginForm() {
                   placeholder="Password"
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group1">
                 <input
                   type="password"
                   id="C_password"

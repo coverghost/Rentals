@@ -13,7 +13,7 @@ const Navbar = () => {
     <>
       <div className="nav_bar">
         <div className="logo">
-          <img src={logo} alt="logo" />
+          {/* <img src={logo} alt="logo" /> */}
         </div>
         <ul className="nav_bar li a">
           <li>
