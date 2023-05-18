@@ -31,3 +31,40 @@
   text-align: center;
   background-color: rgb(255, 255, 255);
 }
+
+.image-home{
+  height: 70vh;
+  width: 180vh;
+}
+
+.runing-news{
+  background-color: rgb(0, 0, 0);
+  height: 55px;
+  padding: 5px;
+  align-items: center;
+  display: flex;
+
+}
+
+
+.runing-news p {
+  position: absolute;
+  white-space: nowrap;
+  width: auto;
+  animation: running-text 20s linear infinite;
+}
+
+@keyframes running-text {
+  0% {
+    transform: translateX(auto);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.news{
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+}
