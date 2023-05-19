@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./css/nav.css";
 import { Link } from "react-router-dom";
 import logo from "./image/logo.png";
 import Login from "./login";
+import { MyContext } from "../context/Context";
 const Navbar = () => {
+  const { isLoggedIn } = useContext(MyContext);
   const [showPopup, setShowPopup] = useState(false);
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
+
+  console.log("from Navbar====>", isLoggedIn)
 
   return (
     <>

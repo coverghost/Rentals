@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import api from "../services/api";
+import { MyContext } from "../context/Context";
 
 function LoginForm() {
+  const { setLoggedIn } = useContext(MyContext);
   const [token, setToken] = useState("");
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
@@ -14,28 +16,30 @@ function LoginForm() {
     const storedToken = localStorage.getItem("token");
 
     if (storedToken) {
+      setLoggedIn(true);
       // Set the token in the state
       setToken(storedToken);
     }
   }, []);
 
-  const handlePhoneChange = (event:any) => {
+  const handlePhoneChange = (event: any) => {
     setMobile(event.target.value);
   };
 
-  const handlePasswordChange = (event:any) => {
+  const handlePasswordChange = (event: any) => {
     setPassword(event.target.value);
   };
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(api+"/login", {
+      const response = await axios.post(api + "/login", {
         mobile,
         password,
       });
       const { token } = response.data;
       setToken(token);
       localStorage.setItem("token", token);
+      setLoggedIn(true); // Update login state
     } catch (error) {
       console.error(error);
       setError("Invalid mobile or password");
@@ -45,7 +49,9 @@ function LoginForm() {
   const handleLogout = () => {
     setToken("");
     localStorage.removeItem("token");
+    setLoggedIn(false); // Update login state
   };
+  
 
   const handleSignup = async () => {
     try {
@@ -62,7 +68,7 @@ function LoginForm() {
     }
   };
 
-  const handleSubmit = (event:any) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     setError("");
 
@@ -109,7 +115,9 @@ function LoginForm() {
               />
             </div>
             {error && <p>{error}</p>}
-            <button type="submit">{isLogin ? "Login" : "Signup"}</button>
+            <button onClick={handleLogin} type="submit">
+              {isLogin ? "Login" : "Signup"}
+            </button>
           </form>
           <p>
             {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}

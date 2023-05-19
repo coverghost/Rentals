@@ -4,16 +4,20 @@ import Navbar from "./component/Navbar";
 import Home from "./component/Home";
 import "./App.css";
 
+import { MyContextProvider } from "./context/Context";
+
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/about" element={<About />}  */}
-        </Routes>
-      </BrowserRouter>
+      <MyContextProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/about" element={<About />}  */}
+          </Routes>
+        </BrowserRouter>
+      </MyContextProvider>
     </>
   );
 }
