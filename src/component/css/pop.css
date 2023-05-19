@@ -1,0 +1,20 @@
+.pop-in {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .pop-in-enter {
+    transform: scale(0);
+  }
+  
+  .pop-in-enter-active {
+    transform: scale(1);
+  }
+  

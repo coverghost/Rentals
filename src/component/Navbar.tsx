@@ -1,24 +1,26 @@
-import React, { useContext, useState } from "react";
-import "./css/nav.css";
-import { Link } from "react-router-dom";
-import logo from "./image/logo.png";
-import Login from "./login";
+import { useContext, useState } from "react";
 import { MyContext } from "../context/Context";
+import { Link } from "react-router-dom";
+import Popup from "./pop";
+
 const Navbar = () => {
   const { isLoggedIn } = useContext(MyContext);
   const [showPopup, setShowPopup] = useState(false);
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
+
+  const openPopup = () => {
+    setShowPopup(true);
   };
 
-  console.log("from Navbar====>", isLoggedIn)
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
+  console.log("from Navbar====>", isLoggedIn);
 
   return (
     <>
       <div className="nav_bar">
-        <div className="logo">
-          {/* <img src={logo} alt="logo" /> */}
-        </div>
+        <div className="logo">{/* <img src={logo} alt="logo" /> */}</div>
         <ul className="nav_bar li a">
           <li>
             <Link to="/">HOME</Link>
@@ -33,21 +35,20 @@ const Navbar = () => {
             <Link to="/contact">CONTACT US</Link>
           </li>
         </ul>
-        <button className="login_button" onClick={togglePopup}>
-          LogIn
-        </button>
-      </div>
-      {showPopup && (
-          <div className="popup-container">
-            <div className="popup">
-              <button onClick={togglePopup} className="button">
-                ❌
-              </button>
-              <Login />
-            </div>
-          </div>
+
+        {isLoggedIn ? (
+          <button className="login_button" onClick={openPopup}>
+            LogOut
+          </button>
+        ) : (
+          <button className="login_button" onClick={openPopup}>
+            LogIn
+          </button>
         )}
+      </div>
+      {showPopup && <Popup onClose={closePopup} />}
     </>
   );
 };
+
 export default Navbar;

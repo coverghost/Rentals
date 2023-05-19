@@ -13,7 +13,7 @@ const Home = () => {
       </div>
 
       <div className="home-body">
-        <img src={image} alt="rupeesimage" className="image-home" />
+        {/* <img src={image} alt="rupeesimage" className="image-home" /> */}
       </div>
     </>
   );
