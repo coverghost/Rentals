@@ -6,6 +6,7 @@ import "./App.css";
 
 import { MyContext, MyContextProvider } from "./context/Context";
 import Userdashboard from "./component/Userdashboard/dashboard";
+import Profile from "./component/Userdashboard/profile";
 
 function App() {
   const { unitoken } = useContext(MyContext);
@@ -15,7 +16,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Userdashboard />} />
+          <Route path="/dashboard" element={<Userdashboard />} />       
+          
           {/* <Route path={unitoken ? "/dashboard" : "/"} element={<Userdashboard />} /> */}
         </Routes>
       </BrowserRouter>

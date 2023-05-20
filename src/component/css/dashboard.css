@@ -1,18 +1,44 @@
+.card {
+    margin-top: -19px;
+    width: 250px; /* Adjust the width and height as needed */
+    height: 250px;
+    border-radius: 50%;
+    background-color: #f1f1f1; /* Set the desired background color */
+    margin-left: 120px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .icon {
+    width: 250px; /* Adjust the width and height as needed */
+    height: 250px;
+    border-radius: 50%;
+  }
+
+.User-Name{
+    padding: 15px;
+    margin-top: 35px;
+    font-size: 30px;
+    font-weight: 900;
+    background-color: #f1f1f1; /* Set the desired background color */
+
+}  
+  
 .dashboard {
     display: flex;
     height: 100vh;
+    background-color: #565836;
+
   }
   
   .sidebar {
     width: 250px;
     background-color: #000000;
+    justify-content: center;
+    align-items: center;
 
   }
-  .logo{
-    color: #ffffff;
-    margin-top: 50px;
-
-  }
+ 
   
   .sidebar-nav {
     list-style: none;
@@ -32,26 +58,13 @@
     color: #ffffff;
   }
   
-  .sidebar-link:hover {
-    color: #555;
-  }
-  
-  .main-content {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .sidebar-toggle {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-  }
-  
-  .sidebar-open .main-content {
-    margin-left: 250px;
-  }
 
-  .icons-sidenav{
-    width: 90px;
-  }
   
+ 
+  
+ 
+ 
+.db-body{
+    background-color: red;
+    margin-left: 50px;
+}
