@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { MyContext } from "../context/Context";
 import { Link } from "react-router-dom";
 import Popup from "./pop";
+import "./css/nav.css";
 
 const Navbar = () => {
   const { isLoggedIn } = useContext(MyContext);
@@ -46,7 +47,12 @@ const Navbar = () => {
           </button>
         )}
       </div>
-      {showPopup && <Popup onClose={closePopup} />}
+      {showPopup && (
+        <div className="popup-container">
+          <div className="blur-background"></div>
+          <Popup onClose={closePopup} />
+        </div>
+      )}
     </>
   );
 };
