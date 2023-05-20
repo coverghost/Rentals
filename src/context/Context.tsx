@@ -3,6 +3,8 @@ import React, { createContext, useState, useEffect } from "react";
 interface MyContextType {
   isLoggedIn: boolean;
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  closepopup:boolean;
+  setClosepopup: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const MyContext = createContext<MyContextType | any>(undefined);
@@ -12,6 +14,7 @@ export const MyContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
 }) => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [closepopup,setClosepopup] = useState(false)
 
   useEffect(() => {
     const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
@@ -40,6 +43,8 @@ export const MyContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
   const contextValue: MyContextType = {
     isLoggedIn,
     setLoggedIn,
+    closepopup,
+    setClosepopup,
   };
 
   return (

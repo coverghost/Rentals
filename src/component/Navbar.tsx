@@ -6,9 +6,16 @@ import "./css/nav.css";
 
 const Navbar = () => {
   const { isLoggedIn } = useContext(MyContext);
+  const { closepopup } = useContext(MyContext);
+  const { setClosepopup } = useContext(MyContext);
+
+
+  const { setLoggedIn } = useContext(MyContext);
   const [showPopup, setShowPopup] = useState(false);
+  const [token, setToken] = useState("");
 
   const openPopup = () => {
+    setClosepopup(false);
     setShowPopup(true);
   };
 
@@ -16,7 +23,13 @@ const Navbar = () => {
     setShowPopup(false);
   };
 
-  console.log("from Navbar====>", isLoggedIn);
+  const handleLogout = () => {
+    setToken("");
+    localStorage.removeItem("token");
+    setLoggedIn(false); // Update login state
+  };
+
+  console.log("from Navbar===closepopup =>", closepopup);
 
   return (
     <>
@@ -38,7 +51,7 @@ const Navbar = () => {
         </ul>
 
         {isLoggedIn ? (
-          <button className="login_button" onClick={openPopup}>
+          <button className="login_button" onClick={handleLogout}>
             LogOut
           </button>
         ) : (
@@ -47,12 +60,14 @@ const Navbar = () => {
           </button>
         )}
       </div>
-      {showPopup && (
-        <div className="popup-container">
-          <div className="blur-background"></div>
-          <Popup onClose={closePopup} />
-        </div>
-      )}
+      {closepopup
+        ? ""
+        : showPopup && (
+            <div className="popup-container">
+              <div className="blur-background"></div>
+              <Popup onClose={closePopup} />
+            </div>
+          )}
     </>
   );
 };

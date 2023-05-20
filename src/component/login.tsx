@@ -6,8 +6,12 @@ import './css/login.css'
 
 function LoginForm() {
   const { setLoggedIn } = useContext(MyContext);
+  const { setClosepopup } = useContext(MyContext);
+
   const [token, setToken] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const [isLogin, setIsLogin] = useState(true);
   //login form
   const [mobile, setMobile] = useState("");
@@ -58,7 +62,6 @@ function LoginForm() {
     if(mobile.length<10){
       console.log("invalidmobile number ")
       return
-
     }
 
     try {
@@ -71,21 +74,11 @@ function LoginForm() {
       localStorage.setItem("token", token);
       setLoggedIn(true); // Update login state
     } catch (error:any) {
-      console.log(error.response.data.message);
       setError(error.response.data.message);
     }
   };
 
-  // Logut function
-
-  const handleLogout = () => {
-    setToken("");
-    localStorage.removeItem("token");
-    setLoggedIn(false); // Update login state
-  };
-
   // Signup function
-
   const handleSignup = async () => {
     if(S_mobile.length<10 || (S_password !== S_C_password) || (S_password.length<6)){
       return
@@ -96,13 +89,15 @@ function LoginForm() {
         S_mobile,
         S_password,
       });
-      const { data } = response.data;
-      console.log("data--line 86-->>",data)
-    } catch (error) {
-      console.error(error);
-      setError("Signup failed");
+      const  data  = response.data;
+      setSuccess(data.message);
+
+    } catch (error:any) {
+      setError(error.response.data.message);
     }
   };
+
+
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -129,12 +124,7 @@ function LoginForm() {
 
   return (
     <div className="form-wrapper">
-      {token ? (
-        <div>
-          <p>You are logged in</p>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      ) : (
+      {token ? setClosepopup(true) : (
         <div className="form-container">
           <h2>{isLogin ? "Login" : "Signup"}</h2>
           {isLogin ? (
@@ -159,7 +149,7 @@ function LoginForm() {
                   placeholder="Password"
                 />
               </div>
-              {error && <p className="error-message">{error}</p>}
+              {(error && <p className="error-message">{error}</p>)}
               <button onClick={handleLogin} type="submit" className="submit-button">
                 {isLogin ? "Login" : "Signup"}
               </button>
@@ -206,7 +196,7 @@ function LoginForm() {
                   placeholder="Confirm Password"
                 />
               </div>
-              {error && <p className="error-message">{error}</p>}
+              {error?(error && <p className="error-message">{error}</p>):(success && <p className="success-message">{success}</p>)}
               <button onClick={handleSignup} type="submit" className="submit-button">
                 {isLogin ? "Login" : "Signup"}
               </button>
