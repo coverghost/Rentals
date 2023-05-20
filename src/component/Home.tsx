@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./css/home.css";
-import image from "./image/homebg.jpg";
+import News from "./news";
 
 const Home = () => {
   return (
     <>
-      <div className="runing-news">
-        <p className="news">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure enim
-          veritatis aperiam quaerat, cum harum unde eveniet maiores.
-        </p>
+      <div>
+        <News/>
       </div>
 
       <div className="home-body">

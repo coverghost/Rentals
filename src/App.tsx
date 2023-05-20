@@ -15,7 +15,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path={unitoken ? "/dashboard" : "/"} element={<Userdashboard />} />
+          <Route path="/dashboard" element={<Userdashboard />} />
+          {/* <Route path={unitoken ? "/dashboard" : "/"} element={<Userdashboard />} /> */}
         </Routes>
       </BrowserRouter>
     </>
