@@ -53,7 +53,14 @@ function LoginForm() {
     setS_C_Password(event.target.value);
   };
 
+  // Login function
   const handleLogin = async () => {
+    if(mobile.length<10){
+      console.log("invalidmobile number ")
+      return
+
+    }
+
     try {
       const response = await axios.post(api + "/login", {
         mobile,
@@ -63,11 +70,13 @@ function LoginForm() {
       setToken(token);
       localStorage.setItem("token", token);
       setLoggedIn(true); // Update login state
-    } catch (error) {
-      console.error(error);
-      setError("Invalid mobile or password");
+    } catch (error:any) {
+      console.log(error.response.data.message);
+      setError(error.response.data.message);
     }
   };
+
+  // Logut function
 
   const handleLogout = () => {
     setToken("");
@@ -75,15 +84,20 @@ function LoginForm() {
     setLoggedIn(false); // Update login state
   };
 
+  // Signup function
+
   const handleSignup = async () => {
+    if(S_mobile.length<10 || (S_password !== S_C_password) || (S_password.length<6)){
+      return
+    }
     try {
-      const response = await axios.post("/api/signup", {
-        mobile,
-        password,
+      const response = await axios.post(api+"/user-register", {
+        name,
+        S_mobile,
+        S_password,
       });
-      const { token } = response.data;
-      setToken(token);
-      localStorage.setItem("token", token);
+      const { data } = response.data;
+      console.log("data--line 86-->>",data)
     } catch (error) {
       console.error(error);
       setError("Signup failed");
@@ -92,13 +106,21 @@ function LoginForm() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    if(S_mobile.length<10 ){
+      setError("Enter valid mobile Number")
+      return
+    }
+    else if(S_password.length<6){
+      setError("Password have atlest 6 character")
+      return
+    }
+    if(S_password !== S_C_password){
+      setError("Password not match")
+      return
+    }
     setError("");
 
-    if (isLogin) {
-      handleLogin();
-    } else {
-      handleSignup();
-    }
+    
   };
 
   const handleSwitchForm = () => {
@@ -185,7 +207,7 @@ function LoginForm() {
                 />
               </div>
               {error && <p className="error-message">{error}</p>}
-              <button onClick={handleLogin} type="submit" className="submit-button">
+              <button onClick={handleSignup} type="submit" className="submit-button">
                 {isLogin ? "Login" : "Signup"}
               </button>
             </form>
