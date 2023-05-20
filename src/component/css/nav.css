@@ -103,6 +103,15 @@
 
 .popup-content {
   /* Styles for the popup content */
-  background-color: #fff;
+  /* background-color: #ff0000; */
   padding: 20px;
+  text-align: center;
+}
+
+.cross{
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  font-weight: 800;
+  float: right;
 }
