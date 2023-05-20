@@ -3,6 +3,7 @@ import axios from "axios";
 import api from "../services/api";
 import { MyContext } from "../context/Context";
 import './css/login.css'
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
   const { setLoggedIn } = useContext(MyContext);
@@ -14,6 +15,8 @@ function LoginForm() {
   const [token, setToken] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
+
 
   const [isLogin, setIsLogin] = useState(true);
   //login form
@@ -77,6 +80,7 @@ function LoginForm() {
       localStorage.setItem("token", token);
       setUnitoken(token)
       setLoggedIn(true); // Update login state
+      navigate("/dashboard")
     } catch (error:any) {
       setError(error.response.data.message);
     }

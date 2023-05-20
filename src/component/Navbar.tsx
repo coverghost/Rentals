@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../context/Context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Popup from "./pop";
 import "./css/nav.css";
 
@@ -17,6 +17,7 @@ const Navbar = () => {
   const { setLoggedIn } = useContext(MyContext);
   const [showPopup, setShowPopup] = useState(false);
   const [token, setToken] = useState("");
+  const navigate = useNavigate();
 
 
   console.log("token------>>>", unitoken);
@@ -34,7 +35,8 @@ const Navbar = () => {
     setToken("");
     localStorage.removeItem("token");
     setUnitoken("")
-    setLoggedIn(false); // Update login state
+    setLoggedIn(false);
+    navigate("/") 
   };
 
   console.log("from Navbar===closepopup =>", closepopup);
@@ -49,7 +51,7 @@ const Navbar = () => {
               <Link to="/">HOME</Link>
             </li>
             <li>
-              <Link to="/about">Dashboard</Link>
+              <Link to="/dashboard">Dashboard</Link>
             </li>
             <li>
               <Link to="/about">ABOUT</Link>
