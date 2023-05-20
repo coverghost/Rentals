@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../context/Context";
 import { Link } from "react-router-dom";
 import Popup from "./pop";
@@ -7,12 +7,19 @@ import "./css/nav.css";
 const Navbar = () => {
   const { isLoggedIn } = useContext(MyContext);
   const { closepopup } = useContext(MyContext);
-  const { setClosepopup } = useContext(MyContext);
+  const { unitoken } = useContext(MyContext);
 
+  const { setClosepopup } = useContext(MyContext);
+  const { setUnitoken } = useContext(MyContext);
+
+  
 
   const { setLoggedIn } = useContext(MyContext);
   const [showPopup, setShowPopup] = useState(false);
   const [token, setToken] = useState("");
+
+
+  console.log("token------>>>", unitoken);
 
   const openPopup = () => {
     setClosepopup(false);
@@ -26,6 +33,7 @@ const Navbar = () => {
   const handleLogout = () => {
     setToken("");
     localStorage.removeItem("token");
+    setUnitoken("")
     setLoggedIn(false); // Update login state
   };
 
@@ -35,20 +43,40 @@ const Navbar = () => {
     <>
       <div className="nav_bar">
         <div className="logo">{/* <img src={logo} alt="logo" /> */}</div>
-        <ul className="nav_bar li a">
-          <li>
-            <Link to="/">HOME</Link>
-          </li>
-          <li>
-            <Link to="/about">ABOUT</Link>
-          </li>
-          <li>
-            <Link to="/services">SERVICES</Link>
-          </li>
-          <li>
-            <Link to="/contact">CONTACT US</Link>
-          </li>
-        </ul>
+        {unitoken ? (
+          <ul className="nav_bar li a">
+            <li>
+              <Link to="/">HOME</Link>
+            </li>
+            <li>
+              <Link to="/about">Dashboard</Link>
+            </li>
+            <li>
+              <Link to="/about">ABOUT</Link>
+            </li>
+            <li>
+              <Link to="/services">SERVICES</Link>
+            </li>
+            <li>
+              <Link to="/contact">CONTACT US</Link>
+            </li>
+          </ul>
+        ) : (
+          <ul className="nav_bar li a">
+            <li>
+              <Link to="/">HOME</Link>
+            </li>
+            <li>
+              <Link to="/about">ABOUT</Link>
+            </li>
+            <li>
+              <Link to="/services">SERVICES</Link>
+            </li>
+            <li>
+              <Link to="/contact">CONTACT US</Link>
+            </li>
+          </ul>
+        )}
 
         {isLoggedIn ? (
           <button className="login_button" onClick={handleLogout}>

@@ -7,6 +7,9 @@ import './css/login.css'
 function LoginForm() {
   const { setLoggedIn } = useContext(MyContext);
   const { setClosepopup } = useContext(MyContext);
+  const { setUnitoken } = useContext(MyContext);
+
+
 
   const [token, setToken] = useState("");
   const [error, setError] = useState("");
@@ -72,6 +75,7 @@ function LoginForm() {
       const { token } = response.data;
       setToken(token);
       localStorage.setItem("token", token);
+      setUnitoken(token)
       setLoggedIn(true); // Update login state
     } catch (error:any) {
       setError(error.response.data.message);

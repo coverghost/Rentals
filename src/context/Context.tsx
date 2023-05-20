@@ -5,6 +5,8 @@ interface MyContextType {
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   closepopup:boolean;
   setClosepopup: React.Dispatch<React.SetStateAction<boolean>>;
+  unitoken:String;
+  setUnitoken: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const MyContext = createContext<MyContextType | any>(undefined);
@@ -15,6 +17,9 @@ export const MyContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [closepopup,setClosepopup] = useState(false)
+  const [unitoken,setUnitoken] = useState("")
+
+  
 
   useEffect(() => {
     const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
@@ -45,6 +50,8 @@ export const MyContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
     setLoggedIn,
     closepopup,
     setClosepopup,
+    unitoken,
+    setUnitoken,
   };
 
   return (
