@@ -6,7 +6,7 @@ import "./App.css";
 
 import { MyContext, MyContextProvider } from "./context/Context";
 import Userdashboard from "./component/Userdashboard/dashboard";
-import Profile from "./component/Userdashboard/profile";
+
 
 function App() {
   const { unitoken } = useContext(MyContext);
