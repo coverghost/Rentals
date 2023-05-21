@@ -1,10 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../css/dashboard.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import api from "../../services/api";
+import { MyContext } from "../../context/Context";
 
 const Userdashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [token, setToken] = useState("");
+
+
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+
+    if (storedToken) {
+
+      setToken(storedToken);
+    }
+  }, []);
+
   const name = "AYUSH ARYA"
+  console.log("unitoken-------- from dashboard line 13-->>",token)
+  
+  const handleSignup = async () => {
+    try {
+      const response = await axios.post(api + "/dashboard", {
+        token
+      });
+      const data = response.data;
+     console.log("data---from dashboard -- line 17-->",data)
+    } catch (error: any) {
+      // setError(error.response.data.message);
+    }
+  }
+
 
   return (
     <>
@@ -25,7 +55,7 @@ const Userdashboard = () => {
               </Link>
             </li>
             <li className="sidebar-item">
-              <Link to="/dashboard" className="sidebar-link">
+              <Link to="/dashboard" className="sidebar-link" onClick={handleSignup}>
                 Dashboard
               </Link>
             </li>

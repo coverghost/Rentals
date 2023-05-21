@@ -137,6 +137,7 @@ function LoginForm() {
 
   const handleSwitchForm = () => {
     setError("");
+    setSuccess("")
     setIsLogin(!isLogin);
   };
 
