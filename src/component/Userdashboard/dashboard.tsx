@@ -4,15 +4,44 @@ import { Link } from "react-router-dom";
 import { dashboarService } from "../dashboardservice.tsx/dashboard";
 import DebitCard from "./debitcard";
 import MoneyTransferForm from "./transaction";
+import axios from "axios";
 
-interface DataItem {
-  title: string;
-  description: string;
+interface IUser {
+  _id?: string;
+  userId: string;
+  personal?: {
+    name?: string;
+    password?: string;
+    mobile?: string;
+    photo?: string;
+    dob: string;
+  };
+  address?: {
+    line1: string;
+    line2?: string;
+    pincode: number;
+    state: string;
+    city: string;
+  };
+  kyc?: {
+    panNumber: string;
+    aadhaarNumber?: string;
+  };
+  bankDetails?: {
+    bankName: string;
+    accountName: string;
+    ifsc: string;
+    accountNumber: string;
+    upiId?: string;
+  };
+  createdAt: Date;
+  updatedAt: Date;
 }
 const Userdashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [token, setToken] = useState("");
   const [userdetail, SetUserDetail] = useState<any>();
+  const [getAllUser, setgetAllUser] = useState<any>();
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -20,6 +49,26 @@ const Userdashboard = () => {
     if (storedToken) {
       setToken(storedToken);
     }
+
+    const loaddata = async () => {
+      try {
+        const userdata = await dashboarService.getUserData(storedToken);
+        SetUserDetail(userdata);
+      } catch (error) {
+        console.error("Error fetching API data:", error);
+      }
+    };
+
+    const fetchData = async () => {
+      try {
+        const userlistdata = await dashboarService.getAllUser();
+        setgetAllUser(userlistdata);
+      } catch (error) {
+        console.error("Error fetching API data:", error);
+      }
+    };
+    loaddata();
+    fetchData();
   }, []);
   console.log("userdetail---->>>>", userdetail);
 
@@ -38,27 +87,9 @@ const Userdashboard = () => {
     userdetail?.user?.personal?.photo ||
     "https://pixlok.com/wp-content/uploads/2022/02/Profile-Icon-SVG-09856789.png";
 
-  const handleSignup = async () => {
-    const userdata = await dashboarService.getUserData(token);
-    SetUserDetail(userdata);
-  };
-
-  const data: DataItem[] = [
-    { title: "Card 1", description: "Description 1" },
-    { title: "Card 2", description: "Description 2" },
-    { title: "Card 3", description: "Description 3" },
-    { title: "Card 1", description: "Description 1" },
-    { title: "Card 2", description: "Description 2" },
-    { title: "Card 3", description: "Description 3" },
-    { title: "Card 1", description: "Description 1" },
-    { title: "Card 2", description: "Description 20" },
-    { title: "Card 2", description: "Description 2" },
-    { title: "Card 3", description: "Description 3" },
-    { title: "Card 1", description: "Description 1" },
-    { title: "Card 2", description: "Description 20" },
-  
-  
-  ];
+  console.log("userlist----------line 46-->>", getAllUser?.Userlist);
+  const data: IUser[] = getAllUser?.Userlist;
+  console.log("data line 87 ------------>>>>>>", data);
 
   return (
     <>
@@ -129,10 +160,13 @@ const Userdashboard = () => {
                     UpiId={"7703990600@ybl"}
                   />
                   <div className="card-container-scroller">
-                    {data.map((item, index) => (
+                    {data?.map((item, index) => (
                       <div className="card-scroller" key={index}>
-                        <h3>{item.title}</h3>
-                        <p>{item.description}</p>
+                        <h3>{item?.bankDetails?.accountName}</h3>
+                        <p>{item?.bankDetails?.accountNumber}</p>
+                        <p>{item?.bankDetails?.bankName}</p>
+                        <p>{item?.bankDetails?.ifsc}</p>
+                        <p>{item?.bankDetails?.upiId}</p>
                       </div>
                     ))}
                   </div>
@@ -142,15 +176,6 @@ const Userdashboard = () => {
           }
 
           <ul className="sidebar-nav">
-            <li className="sidebar-item">
-              <Link
-                to="/dashboard"
-                className="sidebar-link"
-                onClick={handleSignup}
-              >
-                Dashboard
-              </Link>
-            </li>
             <li className="sidebar-item">
               <Link to="/dashboard" className="sidebar-link">
                 ABOUT
