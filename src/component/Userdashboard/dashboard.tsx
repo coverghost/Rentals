@@ -3,6 +3,9 @@ import "../css/dashboard.css";
 import { Link } from "react-router-dom";
 import { dashboarService } from "../dashboardservice.tsx/dashboard";
 import Profile from "./profile";
+import DebitCard from "./debitcard";
+
+
 
 const Userdashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -29,8 +32,9 @@ const Userdashboard = () => {
       ? userdetail?.user?.address.pincode
       : "Pincode",
   ].join(", ");
-  const image = userdetail?.user?.personal?.photo || "https://pixlok.com/wp-content/uploads/2022/02/Profile-Icon-SVG-09856789.png"
-
+  const image =
+    userdetail?.user?.personal?.photo ||
+    "https://pixlok.com/wp-content/uploads/2022/02/Profile-Icon-SVG-09856789.png";
 
   const handleSignup = async () => {
     const userdata = await dashboarService.getUserData(token);
@@ -42,12 +46,8 @@ const Userdashboard = () => {
       <div className={`dashboard ${isSidebarOpen ? "sidebar-open" : ""}`}>
         <div className="sidebar">
           <div className="User-Name">{name}</div>
-          <div className="card">
-            <img
-              src={image}
-              alt="profile"
-              className="icon"
-            />
+          <div className="card1">
+            <img src={image} alt="profile" className="icon" />
           </div>
           {
             <div className="container1">
@@ -60,15 +60,21 @@ const Userdashboard = () => {
                         <table className="detail">
                           <tbody>
                             <tr>
-                              <td>UserId </td>
+                              <td>
+                                UserId<span> :</span>{" "}
+                              </td>
                               <td>{userdetail?.user?.userId}</td>
                             </tr>
                             <tr>
-                              <td>mobile </td>
+                              <td>
+                                mobile<span> :</span>{" "}
+                              </td>
                               <td>{userdetail?.user?.personal?.mobile}</td>
                             </tr>
                             <tr>
-                              <td>DOB</td>
+                              <td>
+                                DOB <span> :</span>
+                              </td>
                               <td>
                                 {(userdetail?.user?.personal?.dob
                                   ? userdetail?.user?.personal?.dob
@@ -79,8 +85,10 @@ const Userdashboard = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td>ADDRESS</td>
-                              <td>{Address}</td>
+                              <td>
+                                ADDRESS <span> :</span>
+                              </td>
+                              <td> {Address}</td>
                             </tr>
                           </tbody>
                         </table>
@@ -125,14 +133,31 @@ const Userdashboard = () => {
         {/* {dashboard part } */}
         <div className="main-content">
           {
-            // <div className="container">
-            //   <div className="coupon">
-            //     <div className="union">
-            //       <div className="polygon-right"> arya</div>
-            //     </div>
-            //   </div>
-            // </div>
+            <div className="container-total-orders">
+              <div className="coupon-total-orders">
+                <div className="polygon-right-total-orders">TOTAL AMOUNT <div className="value-total-orders">5,000</div> </div>
+              </div>
+            </div>
+            
           }
+          {
+            <div className="container-total-orders">
+            <div className="coupon-total-orders">
+              <div className="polygon-right-total-orders">TOTAL ORDER <div className="value-total-orders">500</div> </div>
+            </div>
+          </div>
+          }
+          {
+            <div className="container-total-orders">
+            <div className="coupon-total-orders">
+              <div className="polygon-right-total-orders">TOTAL ORDER <div className="value-total-orders">500</div> </div>
+            </div>
+          </div>
+          }
+          <div className="debitcard-conatiner">
+          <DebitCard cardNumber={"7890 0762 3548 6523"} cardHolder={"AYUSH ARYA"} expirationDate={"12/25"} cvv={"132"} />
+          </div>
+          
         </div>
       </div>
     </>

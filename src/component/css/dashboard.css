@@ -1,4 +1,4 @@
-.card {
+.card1 {
   margin-top: -19px;
   width: 250px; /* Adjust the width and height as needed */
   height: 250px;
@@ -70,7 +70,12 @@
 }
 
 /* profile conatine  */
-
+.main-content{
+  display: flex;
+  height: 200px;
+  /* background-color: rgb(250, 0, 0); */
+  margin-left: 120px;
+}
 .container {
   background-color: #f1f1f1;
   /* padding-top: 4rem;
@@ -130,7 +135,7 @@
 }
 
 .detail td {
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   padding: 8px;
 }
 
@@ -138,4 +143,41 @@
 .detail td:first-child {
   font-weight: bold;
   width: 120px;
+}
+
+
+.container-total-orders {
+  /* background-color: #f1f1f1; */
+  margin-top: 23px;
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.coupon-total-orders {
+  height: 150px;
+  width: 250px;
+  border-radius: 40px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
+  background-color: #f1f1f1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid black;
+}
+.polygon-right-total-orders{
+  font-size: 25px;
+  font-weight: 800;
+}
+.value-total-orders{
+  font-size: 30px;
+  font-weight: 700;
+}
+.debitcard-conatiner{
+  /* background-color: red; */
+  margin-left: 580px;
 }
