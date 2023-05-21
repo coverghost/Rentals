@@ -42,7 +42,7 @@
   padding: 0;
   margin: 0;
   color: #ffffff;
-  margin-top: 10px;
+  margin-top: -470px;
 }
 
 .sidebar-item {
@@ -74,7 +74,7 @@
   display: flex;
   height: 200px;
   /* background-color: rgb(250, 0, 0); */
-  margin-left: 120px;
+  margin-left: 210px;
 }
 .container {
   background-color: #f1f1f1;
@@ -179,5 +179,77 @@
 }
 .debitcard-conatiner{
   /* background-color: red; */
-  margin-left: 580px;
+  margin-left: 380px;
+}
+.transfer-card{
+
+}
+
+.container1-transfer-card {
+  margin-top: -300px;
+  margin-left: 500px;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.coupon-transfer-card {
+  
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+  width: 1000px;
+  left: 0px;
+  top: 0px;
+  border-radius: 40px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
+  background-color: #000000;
+  overflow: hidden;
+}
+
+
+.polygon-right-transfer-card {
+  
+  color: white;
+  background-color: rgb(0, 0, 0);
+  height: 150px;
+  margin-top: -20px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
+}
+.bankdetails{
+  margin-left: 5px;
+}
+
+.card-container-scroller {
+  margin-top: 100px;
+  max-height: 700px; /* Adjust this value to fit your needs */
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.card-container-scroller::-webkit-scrollbar {
+  width: 6px; /* Adjust this value to change the width of the scrollbar */
+}
+
+.card-container-scroller::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.card-container-scroller::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.card-scroller {
+  color: black;
+  height: 200px;
+
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px 0 rgba(145, 145, 145, 0.989);
+  border: 3px solid rgb(120, 120, 120);
+  border-radius: 50px;
+  transition: 0.3s;
+  margin-top: 20px;
+  margin-left: 55px;
+  margin-right: 55px;
 }

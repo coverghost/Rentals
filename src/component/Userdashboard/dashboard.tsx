@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import "../css/dashboard.css";
 import { Link } from "react-router-dom";
 import { dashboarService } from "../dashboardservice.tsx/dashboard";
-import Profile from "./profile";
 import DebitCard from "./debitcard";
+import MoneyTransferForm from "./transaction";
 
-
-
+interface DataItem {
+  title: string;
+  description: string;
+}
 const Userdashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [token, setToken] = useState("");
@@ -40,6 +42,23 @@ const Userdashboard = () => {
     const userdata = await dashboarService.getUserData(token);
     SetUserDetail(userdata);
   };
+
+  const data: DataItem[] = [
+    { title: "Card 1", description: "Description 1" },
+    { title: "Card 2", description: "Description 2" },
+    { title: "Card 3", description: "Description 3" },
+    { title: "Card 1", description: "Description 1" },
+    { title: "Card 2", description: "Description 2" },
+    { title: "Card 3", description: "Description 3" },
+    { title: "Card 1", description: "Description 1" },
+    { title: "Card 2", description: "Description 20" },
+    { title: "Card 2", description: "Description 2" },
+    { title: "Card 3", description: "Description 3" },
+    { title: "Card 1", description: "Description 1" },
+    { title: "Card 2", description: "Description 20" },
+  
+  
+  ];
 
   return (
     <>
@@ -98,11 +117,30 @@ const Userdashboard = () => {
                 </div>
               </div>
             </div>
-
-            // <div className="profile">
-            //   <Profile />
-            // </div>
           }
+          {
+            <div className="container1-transfer-card">
+              <div className="coupon-transfer-card">
+                <div className="polygon-right-transfer-card">
+                  <MoneyTransferForm
+                    Accnumber={"77039906001234"}
+                    Customer={"AYUSH ARYA"}
+                    IfscCode={"ARBA00012"}
+                    UpiId={"7703990600@ybl"}
+                  />
+                  <div className="card-container-scroller">
+                    {data.map((item, index) => (
+                      <div className="card-scroller" key={index}>
+                        <h3>{item.title}</h3>
+                        <p>{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+
           <ul className="sidebar-nav">
             <li className="sidebar-item">
               <Link
@@ -130,34 +168,45 @@ const Userdashboard = () => {
             </li>
           </ul>
         </div>
+
         {/* {dashboard part } */}
         <div className="main-content">
           {
             <div className="container-total-orders">
               <div className="coupon-total-orders">
-                <div className="polygon-right-total-orders">TOTAL AMOUNT <div className="value-total-orders">5,000</div> </div>
+                <div className="polygon-right-total-orders">
+                  TOTAL AMOUNT <div className="value-total-orders">5,000</div>{" "}
+                </div>
               </div>
             </div>
-            
           }
           {
             <div className="container-total-orders">
-            <div className="coupon-total-orders">
-              <div className="polygon-right-total-orders">TOTAL ORDER <div className="value-total-orders">500</div> </div>
+              <div className="coupon-total-orders">
+                <div className="polygon-right-total-orders">
+                  TOTAL ORDER <div className="value-total-orders">500</div>{" "}
+                </div>
+              </div>
             </div>
-          </div>
           }
+
           {
             <div className="container-total-orders">
-            <div className="coupon-total-orders">
-              <div className="polygon-right-total-orders">TOTAL ORDER <div className="value-total-orders">500</div> </div>
+              <div className="coupon-total-orders">
+                <div className="polygon-right-total-orders">
+                  TOTAL ORDER <div className="value-total-orders">500</div>{" "}
+                </div>
+              </div>
             </div>
-          </div>
           }
           <div className="debitcard-conatiner">
-          <DebitCard cardNumber={"7890 0762 3548 6523"} cardHolder={"AYUSH ARYA"} expirationDate={"12/25"} cvv={"132"} />
+            <DebitCard
+              cardNumber={"7890 0762 3548 6523"}
+              cardHolder={"AYUSH ARYA"}
+              expirationDate={"12/25"}
+              cvv={"132"}
+            />
           </div>
-          
         </div>
       </div>
     </>
