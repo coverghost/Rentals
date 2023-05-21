@@ -19,6 +19,18 @@ const Userdashboard = () => {
   console.log("userdetail---->>>>", userdetail);
 
   const name = userdetail?.user?.personal?.name || "USER";
+  const Address = [
+    userdetail?.user?.address.line1
+      ? userdetail?.user?.address.line1
+      : "locallity",
+    userdetail?.user?.address.city ? userdetail?.user?.address.city : "City",
+    userdetail?.user?.address.state ? userdetail?.user?.address.state : "state",
+    userdetail?.user?.address.pincode
+      ? userdetail?.user?.address.pincode
+      : "Pincode",
+  ].join(", ");
+  const image = userdetail?.user?.personal?.photo || "https://pixlok.com/wp-content/uploads/2022/02/Profile-Icon-SVG-09856789.png"
+
 
   const handleSignup = async () => {
     const userdata = await dashboarService.getUserData(token);
@@ -32,7 +44,7 @@ const Userdashboard = () => {
           <div className="User-Name">{name}</div>
           <div className="card">
             <img
-              src="https://pixlok.com/wp-content/uploads/2022/02/Profile-Icon-SVG-09856789.png"
+              src={image}
               alt="profile"
               className="icon"
             />
@@ -44,7 +56,35 @@ const Userdashboard = () => {
                   <div className="polygon-right">
                     {" "}
                     <div className="profile">
-                      <Profile />
+                      <div className="user-detail-on-card">
+                        <table className="detail">
+                          <tbody>
+                            <tr>
+                              <td>UserId </td>
+                              <td>{userdetail?.user?.userId}</td>
+                            </tr>
+                            <tr>
+                              <td>mobile </td>
+                              <td>{userdetail?.user?.personal?.mobile}</td>
+                            </tr>
+                            <tr>
+                              <td>DOB</td>
+                              <td>
+                                {(userdetail?.user?.personal?.dob
+                                  ? userdetail?.user?.personal?.dob
+                                  : "0"
+                                ).length > 2
+                                  ? userdetail?.user?.personal?.dob
+                                  : "DD-MM-YYYY"}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>ADDRESS</td>
+                              <td>{Address}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -85,13 +125,13 @@ const Userdashboard = () => {
         {/* {dashboard part } */}
         <div className="main-content">
           {
-            <div className="container">
-              <div className="coupon">
-                <div className="union">
-                  <div className="polygon-right"> arya</div>
-                </div>
-              </div>
-            </div>
+            // <div className="container">
+            //   <div className="coupon">
+            //     <div className="union">
+            //       <div className="polygon-right"> arya</div>
+            //     </div>
+            //   </div>
+            // </div>
           }
         </div>
       </div>

@@ -7,6 +7,7 @@
   margin-left: 120px;
   justify-content: center;
   align-items: center;
+  padding: 5px;
 }
 
 .icon {
@@ -60,11 +61,11 @@
 }
 
 .profile {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding: 1px;
   height: 200px;
   width: 114%;
-  background-color: red;
+  background-color: rgb(255, 255, 255);
   /* margin-left: 90px; */
 }
 
@@ -119,4 +120,22 @@
   background: #ffffff;
   border-radius: 1px;
   transform: matrix(0, -1, -1, 0, 0, 0);
+}
+
+/* user-detail-on-card */
+.detail {
+  margin-top: 10px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.detail td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+
+.detail td:first-child {
+  font-weight: bold;
+  width: 120px;
 }
