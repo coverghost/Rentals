@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { dashboarService } from "../dashboardservice.tsx/dashboard";
 import DebitCard from "./debitcard";
 import MoneyTransferForm from "./transaction";
-import axios from "axios";
+import Usercard from "./usercard";
 
 interface IUser {
   _id?: string;
@@ -42,6 +42,7 @@ const Userdashboard = () => {
   const [token, setToken] = useState("");
   const [userdetail, SetUserDetail] = useState<any>();
   const [getAllUser, setgetAllUser] = useState<any>();
+  const [isMainContentVisible, setIsMainContentVisible] = useState(true);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -90,6 +91,10 @@ const Userdashboard = () => {
   console.log("userlist----------line 46-->>", getAllUser?.Userlist);
   const data: IUser[] = getAllUser?.Userlist;
   console.log("data line 87 ------------>>>>>>", data);
+
+  const About = () => {
+    setIsMainContentVisible(!isMainContentVisible);
+  };
 
   return (
     <>
@@ -149,33 +154,11 @@ const Userdashboard = () => {
               </div>
             </div>
           }
-          {
-            <div className="container1-transfer-card">
-              <div className="coupon-transfer-card">
-                <div className="polygon-right-transfer-card">
-                  <MoneyTransferForm
-                    Accnumber={"77039906001234"}
-                    Customer={"AYUSH ARYA"}
-                    IfscCode={"ARBA00012"}
-                    UpiId={"7703990600@ybl"}
-                  />
-                  <div className="card-container-scroller">
-                    {data?.map((item, index) => (
-                      <div className="card-scroller" key={index}>
-                        <h3>{item?.bankDetails?.accountName}</h3>
-                        <p>{item?.bankDetails?.accountNumber}</p>
-                        <p>{item?.bankDetails?.bankName}</p>
-                        <p>{item?.bankDetails?.ifsc}</p>
-                        <p>{item?.bankDetails?.upiId}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          }
 
           <ul className="sidebar-nav">
+            <button className="" onClick={About}>
+              ABOUT
+            </button>
             <li className="sidebar-item">
               <Link to="/dashboard" className="sidebar-link">
                 ABOUT
@@ -195,43 +178,56 @@ const Userdashboard = () => {
         </div>
 
         {/* {dashboard part } */}
-        <div className="main-content">
-          {
-            <div className="container-total-orders">
-              <div className="coupon-total-orders">
-                <div className="polygon-right-total-orders">
-                  TOTAL AMOUNT <div className="value-total-orders">5,000</div>{" "}
-                </div>
-              </div>
-            </div>
-          }
-          {
-            <div className="container-total-orders">
-              <div className="coupon-total-orders">
-                <div className="polygon-right-total-orders">
-                  TOTAL ORDER <div className="value-total-orders">500</div>{" "}
-                </div>
-              </div>
-            </div>
-          }
 
+        <div
+          className={`main-content ${isMainContentVisible ? " " : "hidden"}`}
+        >
           {
-            <div className="container-total-orders">
-              <div className="coupon-total-orders">
-                <div className="polygon-right-total-orders">
-                  TOTAL ORDER <div className="value-total-orders">500</div>{" "}
+            <div className="main-dashboard-user">
+              {
+                <div className="coupon-transfer-card">
+                  <div className="polygon-right-transfer-card">
+                    <MoneyTransferForm
+                      bankname={userdetail?.user?.bankDetails?.bankName}
+                      Accnumber={userdetail?.user?.bankDetails?.accountNumber}
+                      Customer={userdetail?.user?.bankDetails?.accountName}
+                      IfscCode={userdetail?.user?.bankDetails?.ifsc}
+                      UpiId={userdetail?.user?.bankDetails?.upiId}
+                    />
+                    <div className="card-container-scroller">
+                      {data?.map((item, index) => (
+                        <Usercard
+                        bankName={(item?.bankDetails?.bankName)?(item?.bankDetails?.bankName):""}
+                          cardNumber={(item?.bankDetails?.accountNumber)?(item?.bankDetails?.accountNumber):""}
+                          cardHolder={(item?.bankDetails?.accountName)?(item?.bankDetails?.accountName):""}
+                          expirationDate={(item?.bankDetails?.upiId)?(item?.bankDetails?.upiId):""}
+                          cvv={(item?.bankDetails?.ifsc)?(item?.bankDetails?.ifsc):""}
+                        />
+                        // --------------------------------------------------------------
+                        // <div className="card-scroller" key={index}>
+                        //   <h3>{item?.bankDetails?.accountName}</h3>
+                        //   <p>Acc. Number : {item?.bankDetails?.accountNumber}</p>
+                        //   <p>{item?.bankDetails?.bankName}</p>
+                        //   <p>{item?.bankDetails?.ifsc}</p>
+                        //   <p>{item?.bankDetails?.upiId}</p>
+                        // </div>
+                        // --------------------------------------------------------------
+                      ))}
+                    </div>
+                  </div>
                 </div>
+              }
+
+              <div className="debitcard-conatiner">
+                <DebitCard
+                  cardNumber={"7890 0762 3548 6523"}
+                  cardHolder={"AYUSH ARYA"}
+                  expirationDate={"12/25"}
+                  cvv={"132"}
+                />
               </div>
             </div>
           }
-          <div className="debitcard-conatiner">
-            <DebitCard
-              cardNumber={"7890 0762 3548 6523"}
-              cardHolder={"AYUSH ARYA"}
-              expirationDate={"12/25"}
-              cvv={"132"}
-            />
-          </div>
         </div>
       </div>
     </>

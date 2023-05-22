@@ -1,9 +1,9 @@
 .card1 {
   margin-top: -19px;
-  width: 250px; /* Adjust the width and height as needed */
+  width: 250px;
   height: 250px;
   border-radius: 50%;
-  background-color: #f1f1f1; /* Set the desired background color */
+  background-color: #f1f1f1;
   margin-left: 120px;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
 }
 
 .icon {
-  width: 250px; /* Adjust the width and height as needed */
+  width: 250px;
   height: 250px;
   border-radius: 50%;
 }
@@ -21,13 +21,13 @@
   margin-top: 35px;
   font-size: 30px;
   font-weight: 900;
-  background-color: #f1f1f1; /* Set the desired background color */
+  background-color: #f1f1f1;
 }
 
 .dashboard {
   display: flex;
   height: 100vh;
-  background-color: #eae4e4;
+  background-color: #ff0000;
 }
 
 .sidebar {
@@ -61,33 +61,26 @@
 }
 
 .profile {
-  /* border: 2px solid black; */
   padding: 1px;
   height: 200px;
   width: 114%;
   background-color: rgb(255, 255, 255);
-  /* margin-left: 90px; */
 }
 
-/* profile conatine  */
-.main-content{
+.main-content {
   display: flex;
   height: 200px;
-  /* background-color: rgb(250, 0, 0); */
+  background-color: rgb(0, 0, 0);
   margin-left: 210px;
 }
-.container {
-  background-color: #f1f1f1;
-  /* padding-top: 4rem;
-  padding-left: 4rem; */
-  margin-top: 23px;
-  margin-left: 70px;
 
-  justify-content: center;
-  align-items: center;
+.main-dashboard-user {
+  display: flex;
+  height: 200px;
+  background-color: aqua;
 }
+
 .container1 {
-  /* background-color: #f1f1f1; */
   margin-top: -3px;
   margin-left: 50px;
   justify-content: center;
@@ -103,8 +96,6 @@
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
   background-color: #f1f1f1;
   overflow: hidden;
-
-
 }
 
 .union {
@@ -121,13 +112,11 @@
   height: 10px;
   left: 6px;
   top: calc(50% - 10px / 2 + 13.5px);
-
   background: #ffffff;
   border-radius: 1px;
   transform: matrix(0, -1, -1, 0, 0, 0);
 }
 
-/* user-detail-on-card */
 .detail {
   margin-top: 10px;
   border-collapse: collapse;
@@ -135,19 +124,15 @@
 }
 
 .detail td {
-  /* border: 1px solid #ccc; */
   padding: 8px;
 }
-
 
 .detail td:first-child {
   font-weight: bold;
   width: 120px;
 }
 
-
 .container-total-orders {
-  /* background-color: #f1f1f1; */
   margin-top: 23px;
   margin-left: 20px;
   margin-right: 20px;
@@ -169,32 +154,26 @@
   background-color: rgb(255, 255, 255);
   border: 2px solid black;
 }
-.polygon-right-total-orders{
+
+.polygon-right-total-orders {
   font-size: 25px;
   font-weight: 800;
 }
-.value-total-orders{
+
+.value-total-orders {
   font-size: 30px;
   font-weight: 700;
 }
-.debitcard-conatiner{
-  /* background-color: red; */
+
+.debitcard-conatiner {
   margin-left: 380px;
 }
-.transfer-card{
 
-}
-
-.container1-transfer-card {
-  margin-top: -300px;
-  margin-left: 500px;
-  justify-content: center;
-  align-items: center;
-  
-}
 
 .coupon-transfer-card {
-  
+  padding-top: 20px;
+  margin-top: 300px;
+  margin-left: 120px;
   justify-content: center;
   align-items: center;
   height: 800px;
@@ -207,29 +186,28 @@
   overflow: hidden;
 }
 
-
 .polygon-right-transfer-card {
-  
   color: white;
   background-color: rgb(0, 0, 0);
   height: 150px;
   margin-top: -20px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
 }
-.bankdetails{
+
+.bankdetails {
   margin-left: 5px;
 }
 
 .card-container-scroller {
   margin-top: 120px;
-  max-height: 700px; /* Adjust this value to fit your needs */
+  max-height: 700px;
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
 }
 
 .card-container-scroller::-webkit-scrollbar {
-  width: 6px; /* Adjust this value to change the width of the scrollbar */
+  width: 6px;
 }
 
 .card-container-scroller::-webkit-scrollbar-thumb {
@@ -239,17 +217,73 @@
 .card-container-scroller::-webkit-scrollbar-track {
   background-color: transparent;
 }
-
 .card-scroller {
   color: black;
-  height: 200px;
+  background-color: #f7f7f7;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+}
 
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 4px 8px 0 rgba(145, 145, 145, 0.989);
-  border: 3px solid rgb(120, 120, 120);
-  border-radius: 50px;
-  transition: 0.3s;
-  margin-top: 20px;
-  margin-left: 55px;
-  margin-right: 55px;
+.card-scroller h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-scroller p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.card-scroller::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-color: #ccc;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.card-scroller::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-color: #ccc;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.card-scroller:before,
+.card-scroller:after {
+  z-index: -1;
+}
+
+.card-scroller h3,
+.card-scroller p {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.card-scroller h3 {
+  margin-bottom: 15px;
+}
+
+.card-scroller p:last-child {
+  margin-bottom: 0;
+}
+
+
+
+.main-content.hidden {
+  display: none;
 }
