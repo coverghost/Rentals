@@ -42,7 +42,9 @@ const Userdashboard = () => {
   const [token, setToken] = useState("");
   const [userdetail, SetUserDetail] = useState<any>();
   const [getAllUser, setgetAllUser] = useState<any>();
-  const [isMainContentVisible, setIsMainContentVisible] = useState(true);
+  const [transactionscreen, settransactionscreen] = useState(true);
+  const [cardscreen, setcardscreen] = useState(true);
+  const [passbookscreen, setpassbookscreen] = useState(true);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -92,8 +94,30 @@ const Userdashboard = () => {
   const data: IUser[] = getAllUser?.Userlist;
   console.log("data line 87 ------------>>>>>>", data);
 
-  const About = () => {
-    setIsMainContentVisible(!isMainContentVisible);
+  const screenchange = (value: any) => {
+    console.log("value line ------ 96 --->", value ? value : 0);
+    switch (value) {
+      case "transaction":
+        settransactionscreen(true);
+        setcardscreen(false);
+        setpassbookscreen(false);
+        break;
+      case "card":
+        settransactionscreen(false);
+        setcardscreen(true);
+        setpassbookscreen(false);
+
+        break;
+      case "passbook":
+        settransactionscreen(false);
+        setcardscreen(false);
+        setpassbookscreen(true);
+
+        break;
+
+      default:
+        break;
+    }
   };
 
   return (
@@ -156,14 +180,16 @@ const Userdashboard = () => {
           }
 
           <ul className="sidebar-nav">
-            <button className="" onClick={About}>
-              ABOUT
+            <button className="" onClick={() => screenchange("transaction")}>
+              Transaction
             </button>
-            <li className="sidebar-item">
-              <Link to="/dashboard" className="sidebar-link">
-                ABOUT
-              </Link>
-            </li>
+            <button className="" onClick={() => screenchange("card")}>
+              Aplly for Card
+            </button>
+            <button className="" onClick={() => screenchange("passbook")}>
+              Passbook
+            </button>
+
             <li className="sidebar-item">
               <Link to="/dashboard" className="sidebar-link">
                 SERVICES
@@ -179,9 +205,7 @@ const Userdashboard = () => {
 
         {/* {dashboard part } */}
 
-        <div
-          className={`main-content ${isMainContentVisible ? " " : "hidden"}`}
-        >
+        <div className={`main-content ${transactionscreen ? " " : "hidden"}`}>
           {
             <div className="main-dashboard-user">
               {
@@ -197,21 +221,32 @@ const Userdashboard = () => {
                     <div className="card-container-scroller">
                       {data?.map((item, index) => (
                         <Usercard
-                        bankName={(item?.bankDetails?.bankName)?(item?.bankDetails?.bankName):""}
-                          cardNumber={(item?.bankDetails?.accountNumber)?(item?.bankDetails?.accountNumber):""}
-                          cardHolder={(item?.bankDetails?.accountName)?(item?.bankDetails?.accountName):""}
-                          expirationDate={(item?.bankDetails?.upiId)?(item?.bankDetails?.upiId):""}
-                          cvv={(item?.bankDetails?.ifsc)?(item?.bankDetails?.ifsc):""}
+                          bankName={
+                            item?.bankDetails?.bankName
+                              ? item?.bankDetails?.bankName
+                              : ""
+                          }
+                          cardNumber={
+                            item?.bankDetails?.accountNumber
+                              ? item?.bankDetails?.accountNumber
+                              : ""
+                          }
+                          cardHolder={
+                            item?.bankDetails?.accountName
+                              ? item?.bankDetails?.accountName
+                              : ""
+                          }
+                          expirationDate={
+                            item?.bankDetails?.upiId
+                              ? item?.bankDetails?.upiId
+                              : ""
+                          }
+                          cvv={
+                            item?.bankDetails?.ifsc
+                              ? item?.bankDetails?.ifsc
+                              : ""
+                          }
                         />
-                        // --------------------------------------------------------------
-                        // <div className="card-scroller" key={index}>
-                        //   <h3>{item?.bankDetails?.accountName}</h3>
-                        //   <p>Acc. Number : {item?.bankDetails?.accountNumber}</p>
-                        //   <p>{item?.bankDetails?.bankName}</p>
-                        //   <p>{item?.bankDetails?.ifsc}</p>
-                        //   <p>{item?.bankDetails?.upiId}</p>
-                        // </div>
-                        // --------------------------------------------------------------
                       ))}
                     </div>
                   </div>
@@ -226,6 +261,56 @@ const Userdashboard = () => {
                   cvv={"132"}
                 />
               </div>
+            </div>
+          }
+        </div>
+        <div className={`main-content ${cardscreen ? " " : "hidden"}`}>
+          {
+            <div className="main-dashboard-user">
+              {
+                <div className="coupon-transfer-card">
+                  <div className="polygon-right-transfer-card">
+                    <MoneyTransferForm
+                      bankname={userdetail?.user?.bankDetails?.bankName}
+                      Accnumber={userdetail?.user?.bankDetails?.accountNumber}
+                      Customer={userdetail?.user?.bankDetails?.accountName}
+                      IfscCode={userdetail?.user?.bankDetails?.ifsc}
+                      UpiId={userdetail?.user?.bankDetails?.upiId}
+                    />
+                    <div className="card-container-scroller">
+                      {data?.map((item, index) => (
+                        <Usercard
+                          bankName={
+                            item?.bankDetails?.bankName
+                              ? item?.bankDetails?.bankName
+                              : ""
+                          }
+                          cardNumber={
+                            item?.bankDetails?.accountNumber
+                              ? item?.bankDetails?.accountNumber
+                              : ""
+                          }
+                          cardHolder={
+                            item?.bankDetails?.accountName
+                              ? item?.bankDetails?.accountName
+                              : ""
+                          }
+                          expirationDate={
+                            item?.bankDetails?.upiId
+                              ? item?.bankDetails?.upiId
+                              : ""
+                          }
+                          cvv={
+                            item?.bankDetails?.ifsc
+                              ? item?.bankDetails?.ifsc
+                              : ""
+                          }
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              }
             </div>
           }
         </div>
