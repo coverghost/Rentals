@@ -18,8 +18,8 @@
 
 .card {
   margin-top: 25px;
-  width: 400px;
-  height: 200px;
+  width: 420px;
+  height: 220px;
   color: #fff;
   cursor: pointer;
   perspective: 1000px;
@@ -140,7 +140,7 @@
   /* background-color: red; */
 }
 .name-card {
-  /* display: flex; */
+  display: flex;
   margin-left: 20px;
 }
 .exp {
@@ -150,5 +150,5 @@
   margin-left: 30px;
 }
 .exp-date {
-  margin-left: 210px;
+  margin-left: 280px;
 }

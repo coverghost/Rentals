@@ -73,7 +73,6 @@ const Userdashboard = () => {
     loaddata();
     fetchData();
   }, []);
-  console.log("userdetail---->>>>", userdetail);
 
   const name = userdetail?.user?.personal?.name || "USER";
   const Address = [
@@ -89,13 +88,9 @@ const Userdashboard = () => {
   const image =
     userdetail?.user?.personal?.photo ||
     "https://pixlok.com/wp-content/uploads/2022/02/Profile-Icon-SVG-09856789.png";
-
-  console.log("userlist----------line 46-->>", getAllUser?.Userlist);
   const data: IUser[] = getAllUser?.Userlist;
-  console.log("data line 87 ------------>>>>>>", data);
 
   const screenchange = (value: any) => {
-    console.log("value line ------ 96 --->", value ? value : 0);
     switch (value) {
       case "transaction":
         settransactionscreen(true);
@@ -184,23 +179,35 @@ const Userdashboard = () => {
               Transaction
             </button> */}
             <li className="sidebar-item">
-              <button className="side-nav-button" onClick={() => screenchange("passbook")}>
+              <button
+                className="side-nav-button"
+                onClick={() => screenchange("passbook")}
+              >
                 Passbook
               </button>
             </li>
             <li className="sidebar-item">
-              <button className="side-nav-button" onClick={() => screenchange("card")}>
+              <button
+                className="side-nav-button"
+                onClick={() => screenchange("card")}
+              >
                 Apply for Card
               </button>
             </li>
 
             <li className="sidebar-item">
-              <button className="side-nav-button" onClick={() => screenchange("transaction")}>
-                Transaction
+              <button
+                className="side-nav-button"
+                onClick={() => screenchange("transaction")}
+              >
+                Make Transaction
               </button>
             </li>
             <li className="sidebar-item">
-              <button className="side-nav-button" onClick={() => screenchange("passbook")}>
+              <button
+                className="side-nav-button"
+                onClick={() => screenchange("passbook")}
+              >
                 CONTACT US
               </button>
             </li>
@@ -210,114 +217,56 @@ const Userdashboard = () => {
         {/* {dashboard part } */}
 
         <div className={`main-content ${transactionscreen ? " " : "hidden"}`}>
+          <h1 className="transaction-heading">Make Transaction</h1>
           {
-            <div className="main-dashboard-user">
-              {
-                <div className="coupon-transfer-card">
-                  <div className="polygon-right-transfer-card">
-                    <MoneyTransferForm
-                      bankname={userdetail?.user?.bankDetails?.bankName}
-                      Accnumber={userdetail?.user?.bankDetails?.accountNumber}
-                      Customer={userdetail?.user?.bankDetails?.accountName}
-                      IfscCode={userdetail?.user?.bankDetails?.ifsc}
-                      UpiId={userdetail?.user?.bankDetails?.upiId}
-                    />
-                    <div className="card-container-scroller">
-                      {data?.map((item, index) => (
-                        <Usercard
-                          bankName={
-                            item?.bankDetails?.bankName
-                              ? item?.bankDetails?.bankName
-                              : ""
-                          }
-                          cardNumber={
-                            item?.bankDetails?.accountNumber
-                              ? item?.bankDetails?.accountNumber
-                              : ""
-                          }
-                          cardHolder={
-                            item?.bankDetails?.accountName
-                              ? item?.bankDetails?.accountName
-                              : ""
-                          }
-                          expirationDate={
-                            item?.bankDetails?.upiId
-                              ? item?.bankDetails?.upiId
-                              : ""
-                          }
-                          cvv={
-                            item?.bankDetails?.ifsc
-                              ? item?.bankDetails?.ifsc
-                              : ""
-                          }
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              }
-
-              <div className="debitcard-conatiner">
-                <DebitCard
-                  cardNumber={"7890 0762 3548 6523"}
-                  cardHolder={"AYUSH ARYA"}
-                  expirationDate={"12/25"}
-                  cvv={"132"}
+            <div className="coupon-transfer-card">
+              <div className="polygon-right-transfer-card">
+                <MoneyTransferForm
+                  bankname={userdetail?.user?.bankDetails?.bankName}
+                  Accnumber={userdetail?.user?.bankDetails?.accountNumber}
+                  Customer={userdetail?.user?.bankDetails?.accountName}
+                  IfscCode={userdetail?.user?.bankDetails?.ifsc}
+                  UpiId={userdetail?.user?.bankDetails?.upiId}
                 />
+              </div>
+              <div className="card-container-scroller">
+                {data?.map((item, index) => (
+                  <Usercard
+                    bankName={
+                      item?.bankDetails?.bankName
+                        ? item?.bankDetails?.bankName
+                        : ""
+                    }
+                    cardNumber={
+                      item?.bankDetails?.accountNumber
+                        ? item?.bankDetails?.accountNumber
+                        : ""
+                    }
+                    cardHolder={
+                      item?.bankDetails?.accountName
+                        ? item?.bankDetails?.accountName
+                        : ""
+                    }
+                    expirationDate={
+                      item?.bankDetails?.upiId ? item?.bankDetails?.upiId : ""
+                    }
+                    cvv={item?.bankDetails?.ifsc ? item?.bankDetails?.ifsc : ""}
+                  />
+                ))}
               </div>
             </div>
           }
+
+          <div className="debitcard-conatiner">
+            <DebitCard
+              cardNumber={"7890 0762 3548 6523"}
+              cardHolder={"AYUSH ARYA"}
+              expirationDate={"12/25"}
+              cvv={"132"}
+            />
+          </div>
         </div>
-        <div className={`main-content ${cardscreen ? " " : "hidden"}`}>
-          {
-            <div className="main-dashboard-user">
-              {
-                <div className="coupon-transfer-card">
-                  <div className="polygon-right-transfer-card">
-                    <MoneyTransferForm
-                      bankname={userdetail?.user?.bankDetails?.bankName}
-                      Accnumber={userdetail?.user?.bankDetails?.accountNumber}
-                      Customer={userdetail?.user?.bankDetails?.accountName}
-                      IfscCode={userdetail?.user?.bankDetails?.ifsc}
-                      UpiId={userdetail?.user?.bankDetails?.upiId}
-                    />
-                    <div className="card-container-scroller">
-                      {data?.map((item, index) => (
-                        <Usercard
-                          bankName={
-                            item?.bankDetails?.bankName
-                              ? item?.bankDetails?.bankName
-                              : ""
-                          }
-                          cardNumber={
-                            item?.bankDetails?.accountNumber
-                              ? item?.bankDetails?.accountNumber
-                              : ""
-                          }
-                          cardHolder={
-                            item?.bankDetails?.accountName
-                              ? item?.bankDetails?.accountName
-                              : ""
-                          }
-                          expirationDate={
-                            item?.bankDetails?.upiId
-                              ? item?.bankDetails?.upiId
-                              : ""
-                          }
-                          cvv={
-                            item?.bankDetails?.ifsc
-                              ? item?.bankDetails?.ifsc
-                              : ""
-                          }
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              }
-            </div>
-          }
-        </div>
+        <div></div>
       </div>
     </>
   );

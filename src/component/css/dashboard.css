@@ -68,16 +68,21 @@
 }
 
 .main-content {
-  display: flex;
-  height: 200px;
-  background-color: rgb(0, 0, 0);
-  margin-left: 210px;
+  /* display: flex; */
+  width: 400vh;
+  height: 100vh;
+  margin-left: 20px;
+  /* background-color: green; */
 }
 
-.main-dashboard-user {
-  display: flex;
-  height: 200px;
-  background-color: aqua;
+.transaction-heading{
+  display: inline-block;
+  width: 100vh;
+  padding: 25px;
+  margin-left: 40px;
+  border-radius: 50px;
+  background-color: rgb(0, 0, 0);
+  color: white;
 }
 
 .container1 {
@@ -171,18 +176,20 @@
 
 
 .coupon-transfer-card {
-  padding-top: 20px;
-  margin-top: 300px;
-  margin-left: 120px;
+  /* padding-top: 20px; */
+  margin-top: 200px;
+  margin-left: 220px;
   justify-content: center;
   align-items: center;
   height: 860px;
   width: 800px;
   left: 0px;
   top: 0px;
+  border: 2px solid black;
   border-radius: 40px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
-  background-color: #000000;
+  /* background-color: #42b86f; */
+  color: white;
   overflow: hidden;
 }
 
@@ -199,8 +206,8 @@
 }
 
 .card-container-scroller {
-  margin-top: 120px;
-  max-height: 700px;
+  margin-top: 0px;
+  max-height: 705px;
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
