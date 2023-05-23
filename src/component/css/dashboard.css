@@ -199,6 +199,7 @@
   /* padding-top: 20px; */
   margin-top: -860px;
   margin-left: 1250px;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   height: 860px;

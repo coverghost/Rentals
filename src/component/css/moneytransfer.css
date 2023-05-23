@@ -1,0 +1,38 @@
+.transfer-heading {
+    background-color: black;
+    height: 100px;
+}
+.heading-money{
+    margin-top: 1px;
+}
+.option-for-payment{
+    background-color: blue;
+}
+.transaction-option {
+  /* border: 2px solid black; */
+  margin-top: 200px;
+  margin-left: 250px;
+  padding: 20px;
+  width: 270px;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center; 
+}
+.voneytransfer-card {
+  margin: 15px;
+  height: auto;
+  width: 200px;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 50px;
+}
+.voneytransfer-card:hover {
+    margin: 15px;
+    height: auto;
+    width: 200px;
+    padding: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+  }

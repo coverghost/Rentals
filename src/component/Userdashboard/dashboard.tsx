@@ -6,6 +6,7 @@ import { dashboarService } from "../dashboardservice.tsx/dashboard";
 import DebitCard from "./debitcard";
 import MoneyTransferForm from "./transaction";
 import Usercard from "./usercard";
+import Moneytransfer from "./moneytransfer";
 
 interface IUser {
   _id?: string;
@@ -43,10 +44,10 @@ const Userdashboard = () => {
   const [token, setToken] = useState("");
   const [userdetail, SetUserDetail] = useState<any>();
   const [getAllUser, setgetAllUser] = useState<any>();
-  const [transactionscreen, settransactionscreen] = useState(false);
+  const [transactionscreen, settransactionscreen] = useState(true);
   const [cardscreen, setcardscreen] = useState(false);
   const [passbookscreen, setpassbookscreen] = useState(false);
-  const [profilescreen, setprofilescreen] = useState(true);
+  const [profilescreen, setprofilescreen] = useState(false);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -278,7 +279,7 @@ const Userdashboard = () => {
           }
           {
             <div className="coupon-transfer-card-left">
-              <h1>aryaa</h1>
+              <Moneytransfer/>
             </div>
           }
         </div>
