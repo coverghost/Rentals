@@ -180,25 +180,29 @@ const Userdashboard = () => {
           }
 
           <ul className="sidebar-nav">
-            <button className="" onClick={() => screenchange("transaction")}>
+            {/* <button className="" onClick={() => screenchange("transaction")}>
               Transaction
-            </button>
-            <button className="" onClick={() => screenchange("card")}>
-              Aplly for Card
-            </button>
-            <button className="" onClick={() => screenchange("passbook")}>
-              Passbook
-            </button>
-
+            </button> */}
             <li className="sidebar-item">
-              <Link to="/dashboard" className="sidebar-link">
-                SERVICES
-              </Link>
+              <button className="side-nav-button" onClick={() => screenchange("passbook")}>
+                Passbook
+              </button>
             </li>
             <li className="sidebar-item">
-              <Link to="/dashboard" className="sidebar-link">
+              <button className="side-nav-button" onClick={() => screenchange("card")}>
+                Apply for Card
+              </button>
+            </li>
+
+            <li className="sidebar-item">
+              <button className="side-nav-button" onClick={() => screenchange("transaction")}>
+                Transaction
+              </button>
+            </li>
+            <li className="sidebar-item">
+              <button className="side-nav-button" onClick={() => screenchange("passbook")}>
                 CONTACT US
-              </Link>
+              </button>
             </li>
           </ul>
         </div>
