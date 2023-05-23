@@ -129,6 +129,7 @@ const Userdashboard = () => {
         break;
     }
   };
+  console.log("userdetail line 132 ---->>",userdetail?.useracount[0]?.totalamount)
 
   return (
     <>
@@ -233,7 +234,11 @@ const Userdashboard = () => {
 
         <div className={`main-content ${transactionscreen ? " " : "hidden"}`}>
           <h1 className="transaction-heading">Make Transaction</h1>
+          
           <div className="debitcard-conatiner">
+            <div>Total Balance = {userdetail?.useracount[0]?.totalamount}</div>
+            <div>Total Debt = {userdetail?.useracount[0]?.totaldebt}</div>
+
             <DebitCard
               cardNumber={"7890 0762 3548 6523"}
               cardHolder={"AYUSH ARYA"}
