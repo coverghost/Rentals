@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../css/usercard.css";
+import { MyContext } from "../../context/Context";
 
 type DebitCardProps = {
   bankName: string;
@@ -9,22 +10,28 @@ type DebitCardProps = {
   cvv: string;
 };
 
-const Usercard: React.FC<DebitCardProps> = ({
+const UserCard: React.FC<DebitCardProps> = ({
   bankName,
   cardNumber,
   cardHolder,
   expirationDate,
   cvv,
 }) => {
+  const { setUniupi } = useContext(MyContext);
+
+  const handleValue = (value: any) => {
+    setUniupi(value);
+    console.log("Clicked - UPI ID - Line 20: ", value);
+  };
+
   return (
     <>
-      <div className="user-card">
+      <div className="user-card" onClick={() => handleValue(expirationDate)}>
         <div className="user-front">
           <div className="row">
             <p className="name-card1">{cardHolder}</p>
             <p className="name-card2">{bankName}</p>
-
-            <img src="https://i.ibb.co/WHZ3nRJ/visa.png" width="60px" />
+            Pay by Click
           </div>
           <div className="row-card-no">
             <p>Acc. {cardNumber}</p>
@@ -45,4 +52,4 @@ const Usercard: React.FC<DebitCardProps> = ({
   );
 };
 
-export default Usercard;
+export default UserCard;

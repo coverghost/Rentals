@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../css/dashboard.css";
 import "../css/dashboardScreen.css";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import DebitCard from "./debitcard";
 import MoneyTransferForm from "./transaction";
 import Usercard from "./usercard";
 import Moneytransfer from "./moneytransfer";
+import { MyContext } from "../../context/Context";
 
 interface IUser {
   _id?: string;
@@ -40,6 +41,7 @@ interface IUser {
   updatedAt: Date;
 }
 const Userdashboard = () => {
+  
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [token, setToken] = useState("");
   const [userdetail, SetUserDetail] = useState<any>();

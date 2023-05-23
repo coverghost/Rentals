@@ -7,6 +7,8 @@ interface MyContextType {
   setClosepopup: React.Dispatch<React.SetStateAction<boolean>>;
   unitoken:String;
   setUnitoken: React.Dispatch<React.SetStateAction<string>>;
+  uniupi:String;
+  setUniupi: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const MyContext = createContext<MyContextType | any>(undefined);
@@ -18,6 +20,8 @@ export const MyContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
   const [isLoading, setIsLoading] = useState(true);
   const [closepopup,setClosepopup] = useState(false)
   const [unitoken,setUnitoken] = useState("")
+  const [uniupi,setUniupi] = useState("")
+
 
   
 
@@ -52,6 +56,8 @@ export const MyContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
     setClosepopup,
     unitoken,
     setUnitoken,
+    uniupi,
+    setUniupi,
   };
 
   return (

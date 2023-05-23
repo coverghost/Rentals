@@ -1,38 +1,55 @@
 .transfer-heading {
-    background-color: black;
-    height: 100px;
-}
-.heading-money{
-    margin-top: 1px;
-}
-.option-for-payment{
-    background-color: blue;
-}
-.transaction-option {
-  /* border: 2px solid black; */
-  margin-top: 200px;
-  margin-left: 250px;
-  padding: 20px;
-  width: 270px;
-  /* display: flex; */
+  background-color: black;
+  height: 100px;
+  display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
-.voneytransfer-card {
+.transfer-heading img {
+  margin-top: -10px;
+  margin-left: -70px;
+  margin-right: 110px;
+  width: 50px;
+  padding: 15px;
+}
+.heading-money {
+  margin-top: 1px;
+  margin-right: 80px;
+}
+.main-content-transfer {
+  height: 53vh;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.voneytransfer-card button {
   margin: 15px;
   height: auto;
-  width: 200px;
-  padding: 20px;
+  width: 350px;
+  padding: 35px;
   border: 2px solid black;
   border-radius: 50px;
+  font-size: 25px;
+  font-weight: 800;
+  background-image: linear-gradient(45deg, #0046c75f, #ff2c7d3d);
 }
-.voneytransfer-card:hover {
-    margin: 15px;
-    height: auto;
-    width: 200px;
-    padding: 20px;
-    border: 2px solid rgb(0, 0, 0);
-    background-color: black;
-    color: white;
-    border-radius: 50px;
-  }
+.voneytransfer-card button:hover {
+  margin: 15px;
+  height: auto;
+  width: 350px;
+  padding: 35px;
+  border: 2px solid black;
+  border-radius: 50px;
+  font-size: 25px;
+  font-weight: 800;
+  color: white;
+  background-image: linear-gradient(45deg, #000000be, #000000);
+}
+.main-content-transfer.hidden {
+  display: none;
+}
+.main-content-transfer h1 {
+  color: black;
+}

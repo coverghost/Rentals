@@ -24,8 +24,23 @@ const getAllUser =async () => {
     }
 }
 
+const transactionByUpi =async (token:any,value:any) => {
+  try {
+      const response = await axios.post(api + "/Transfer-By-Upi", {
+        token,
+        value
+      });
+      const data = response.data;
+      return data 
+    } catch (error: any) {
+      return error
+    }
+}
+
+
 export const dashboarService = {
     getUserData,
-    getAllUser
+    getAllUser,
+    transactionByUpi
 
 }
