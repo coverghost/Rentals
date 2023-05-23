@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../css/dashboard.css";
+import "../css/dashboardScreen.css";
 import { Link } from "react-router-dom";
 import { dashboarService } from "../dashboardservice.tsx/dashboard";
 import DebitCard from "./debitcard";
@@ -42,9 +43,10 @@ const Userdashboard = () => {
   const [token, setToken] = useState("");
   const [userdetail, SetUserDetail] = useState<any>();
   const [getAllUser, setgetAllUser] = useState<any>();
-  const [transactionscreen, settransactionscreen] = useState(true);
-  const [cardscreen, setcardscreen] = useState(true);
-  const [passbookscreen, setpassbookscreen] = useState(true);
+  const [transactionscreen, settransactionscreen] = useState(false);
+  const [cardscreen, setcardscreen] = useState(false);
+  const [passbookscreen, setpassbookscreen] = useState(false);
+  const [profilescreen, setprofilescreen] = useState(true);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -96,17 +98,27 @@ const Userdashboard = () => {
         settransactionscreen(true);
         setcardscreen(false);
         setpassbookscreen(false);
+        setprofilescreen(false);
         break;
       case "card":
         settransactionscreen(false);
         setcardscreen(true);
         setpassbookscreen(false);
+        setprofilescreen(false);
 
         break;
       case "passbook":
         settransactionscreen(false);
         setcardscreen(false);
         setpassbookscreen(true);
+        setprofilescreen(false);
+
+        break;
+      case "Profile":
+        settransactionscreen(false);
+        setcardscreen(false);
+        setpassbookscreen(false);
+        setprofilescreen(true);
 
         break;
 
@@ -181,6 +193,14 @@ const Userdashboard = () => {
             <li className="sidebar-item">
               <button
                 className="side-nav-button"
+                onClick={() => screenchange("Profile")}
+              >
+                Profile
+              </button>
+            </li>
+            <li className="sidebar-item">
+              <button
+                className="side-nav-button"
                 onClick={() => screenchange("passbook")}
               >
                 Passbook
@@ -203,14 +223,6 @@ const Userdashboard = () => {
                 Make Transaction
               </button>
             </li>
-            <li className="sidebar-item">
-              <button
-                className="side-nav-button"
-                onClick={() => screenchange("passbook")}
-              >
-                CONTACT US
-              </button>
-            </li>
           </ul>
         </div>
 
@@ -218,6 +230,14 @@ const Userdashboard = () => {
 
         <div className={`main-content ${transactionscreen ? " " : "hidden"}`}>
           <h1 className="transaction-heading">Make Transaction</h1>
+          <div className="debitcard-conatiner">
+            <DebitCard
+              cardNumber={"7890 0762 3548 6523"}
+              cardHolder={"AYUSH ARYA"}
+              expirationDate={"12/25"}
+              cvv={"132"}
+            />
+          </div>
           {
             <div className="coupon-transfer-card">
               <div className="polygon-right-transfer-card">
@@ -256,17 +276,102 @@ const Userdashboard = () => {
               </div>
             </div>
           }
-
-          <div className="debitcard-conatiner">
-            <DebitCard
-              cardNumber={"7890 0762 3548 6523"}
-              cardHolder={"AYUSH ARYA"}
-              expirationDate={"12/25"}
-              cvv={"132"}
-            />
+        </div>
+        <div className={`main-content ${cardscreen ? " " : "hidden"}`}>
+          <h1 className="transaction-heading">Apply For Card</h1>
+        </div>
+        <div className={`main-content ${passbookscreen ? " " : "hidden"}`}>
+          <h1 className="transaction-heading">Passbook</h1>
+        </div>
+        <div className={`main-content ${profilescreen ? " " : "hidden"}`}>
+          <h1 className="transaction-heading">Profile</h1>
+          <div className="profile-card">
+            <div className="Bank-detail">
+              <h1>Bank Details</h1>
+            </div>
+            <div className="Bank-detail-card">
+              <table>
+                <td>
+                  <tr>
+                    <p>Bank Name</p>{" "}
+                  </tr>
+                  <tr>
+                    <p>Acc. Number</p>
+                  </tr>
+                  <tr>
+                    {" "}
+                    <p>IFSC Code</p>{" "}
+                  </tr>
+                  <tr>
+                    <p>Upi Id</p>
+                  </tr>
+                </td>
+                <td>
+                  <tr>
+                    <p>:</p>{" "}
+                  </tr>
+                  <tr>
+                    <p>:</p>
+                  </tr>
+                  <tr>
+                    {" "}
+                    <p>:</p>{" "}
+                  </tr>
+                  <tr>
+                    <p>:</p>
+                  </tr>
+                </td>
+                <td>
+                  <tr>
+                    <p>{userdetail?.user?.bankDetails?.bankName}</p>{" "}
+                  </tr>
+                  <tr>
+                    <p>{userdetail?.user?.bankDetails?.accountNumber}</p>
+                  </tr>
+                  <tr>
+                    {" "}
+                    <p>{userdetail?.user?.bankDetails?.ifsc}</p>{" "}
+                  </tr>
+                  <tr>
+                    <p>{userdetail?.user?.bankDetails?.upiId}</p>
+                  </tr>
+                </td>
+              </table>
+            </div>
+            <div className="Bank-detail">
+              <h1>KYC Details</h1>
+            </div>
+            <div className="Bank-detail-card">
+              <table>
+                <td>
+                  <tr>
+                    <p>Adhar Card</p>{" "}
+                  </tr>
+                  <tr>
+                    <p>PAN Card</p>
+                  </tr>
+      
+                </td>
+                <td>
+                  <tr>
+                    <p>:</p>{" "}
+                  </tr>
+                  <tr>
+                    <p>:</p>
+                  </tr>
+                </td>
+                <td>
+                  <tr>
+                    <p>{userdetail?.user?.bankDetails?.bankName}</p>{" "}
+                  </tr>
+                  <tr>
+                    <p>{userdetail?.user?.bankDetails?.accountNumber}</p>
+                  </tr>
+                </td>
+              </table>
+            </div>
           </div>
         </div>
-        <div></div>
       </div>
     </>
   );

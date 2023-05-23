@@ -171,13 +171,16 @@
 }
 
 .debitcard-conatiner {
-  margin-left: 380px;
+  margin-left: 980px;
+  width: 35vh;
+  display: flex;
+  text-align: center;
 }
 
 
 .coupon-transfer-card {
   /* padding-top: 20px; */
-  margin-top: 200px;
+  margin-top: 60px;
   margin-left: 220px;
   justify-content: center;
   align-items: center;
