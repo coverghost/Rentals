@@ -276,6 +276,11 @@ const Userdashboard = () => {
               </div>
             </div>
           }
+          {
+            <div className="coupon-transfer-card-left">
+              <h1>aryaa</h1>
+            </div>
+          }
         </div>
         <div className={`main-content ${cardscreen ? " " : "hidden"}`}>
           <h1 className="transaction-heading">Apply For Card</h1>
@@ -350,7 +355,6 @@ const Userdashboard = () => {
                   <tr>
                     <p>PAN Card</p>
                   </tr>
-      
                 </td>
                 <td>
                   <tr>

@@ -195,6 +195,23 @@
   color: white;
   overflow: hidden;
 }
+.coupon-transfer-card-left {
+  /* padding-top: 20px; */
+  margin-top: -860px;
+  margin-left: 1250px;
+  justify-content: center;
+  align-items: center;
+  height: 860px;
+  width: 800px;
+  left: 0px;
+  top: 0px;
+  border: 2px solid black;
+  border-radius: 40px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
+  background-color: #42b86f;
+  color: white;
+  overflow: hidden;
+}
 
 .polygon-right-transfer-card {
   color: white;
