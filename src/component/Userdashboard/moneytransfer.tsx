@@ -23,20 +23,18 @@ const Moneytran = () => {
   const [Upiscreen, setUpiscreen] = useState(false);
   const [optionscreen, setoptionscreen] = useState(true);
 
-
-    
   const screenchange = (value: any) => {
     switch (value) {
       case "upiid":
-        setoptionscreen(false)
-        setbankscreen(false)
-        setUpiscreen(true)
-       
+        setoptionscreen(false);
+        setbankscreen(false);
+        setUpiscreen(true);
+
         break;
       case "bank":
-        setoptionscreen(false)
-        setbankscreen(true)
-        setUpiscreen(false)
+        setoptionscreen(false);
+        setbankscreen(true);
+        setUpiscreen(false);
 
         break;
 
@@ -53,16 +51,21 @@ const Moneytran = () => {
         </div>
         <div className="transaction-option">
           <div className="voneytransfer-card">
-            <h2 onClick={() => screenchange("upiid")}>Through Upi ID</h2>
+            <button onClick={() => screenchange("upiid")}>
+              Through Upi ID
+            </button>
           </div>
           <div className="voneytransfer-card">
-            <h2 onClick={() => screenchange("bank")}>Through Bank </h2>
+            <button onClick={() => screenchange("bank")}>Through Bank</button>
           </div>
         </div>
       </div>
-      <div className={`main-content ${bankscreen ? " " : "hidden"}`}>
-          <h1 className="transaction-heading">Passbook</h1>
-        </div>
+      <div className={` ${Upiscreen ? " " : "hidden"}`}>
+        <h1>UPI CARD</h1>
+      </div>
+      <div className={` ${bankscreen ? " " : "hidden"}`}>
+        <h1>Bank Card</h1>
+      </div>
     </>
   );
 };
