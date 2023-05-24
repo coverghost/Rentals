@@ -14,7 +14,7 @@ type DebitCardProps = {
 const Moneytran = () => {
   const { uniupi } = useContext(MyContext);
   const { setUniupi } = useContext(MyContext);
- 
+
   const [token, setToken] = useState("");
   const [value, setvalues] = useState<DebitCardProps>();
   const [bankscreen, setbankscreen] = useState(false);
@@ -22,7 +22,7 @@ const Moneytran = () => {
   const [optionscreen, setoptionscreen] = useState(true);
   const [upiid, setUpi] = useState("");
   const [amount, setamount] = useState("");
-  const [transferapi,settransferapi] = useState("");
+  const [transferapi, settransferapi] = useState<any>("");
 
   const screenchange = (value: any) => {
     console.log("value---->>", value);
@@ -74,12 +74,17 @@ const Moneytran = () => {
         token,
         datatosend
       );
-      settransferapi(senddata)
+      settransferapi(senddata);
     } catch (error) {
       console.error("Error fetching API data:", error);
     }
   };
-  console.log("api send data line 75------>>>",transferapi)
+  // if (transferapi.success) {
+  //   setUniupi("");
+  //   setUpi("");
+  //   setamount("");
+  // // }
+  console.log("api send data line 75------>>>", transferapi.success);
   return (
     <>
       <div className="transfer-heading">
