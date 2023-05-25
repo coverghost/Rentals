@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import "./css/home.css";
 
@@ -8,7 +7,7 @@ const Home = () => {
       <div className="container">
         <div className="card">
           <h2>Card Title</h2>
-          <p>Card content goes here.</p>
+          <p>Card content goes here.- right</p>
         </div>
         <div className="content">
           {/* Add your existing content here */}
