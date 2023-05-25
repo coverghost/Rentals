@@ -1,325 +1,95 @@
-.card1 {
-  margin-top: -19px;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background-color: #f1f1f1;
-  margin-left: 120px;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-}
 
-.icon {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-}
-
-.User-Name {
-  padding: 15px;
-  margin-top: 35px;
-  font-size: 30px;
-  font-weight: 900;
-  background-color: #f1f1f1;
-}
-
-.dashboard {
-  display: flex;
-  height: 100vh;
-  background-color: #ffffff;
-}
-
-.sidebar {
-  width: 250px;
-  background-color: #000000;
-  justify-content: center;
-  align-items: center;
-}
-
-.sidebar-nav {
-  list-style: none;
+.dashboard-screnn{
+  /* background-color: rgba(170, 91, 91, 0.342); */
+  margin: 0;
   padding: 0;
-  margin: 0;
-  color: #ffffff;
-  margin-top: 100px;
+  height: 91.8vh;
+  display: flex;
 }
-
-.sidebar-item {
-  margin-top: 30px;
-  padding: 10px;
-}
-
-.sidebar-link {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.db-body {
-  background-color: red;
-  margin-left: 50px;
-}
-
-.profile {
-  padding: 1px;
-  height: 200px;
-  width: 114%;
-  background-color: rgb(255, 255, 255);
-}
-
-.main-content {
-  /* display: flex; */
-  width: 400vh;
-  height: 100vh;
-  margin-left: 20px;
-  /* background-color: green; */
-}
-
-.transaction-heading{
-  display: inline-block;
-  width: 100vh;
-  padding: 25px;
-  margin-left: 40px;
-  border-radius: 50px;
-  background-color: rgb(0, 0, 0);
-  color: white;
-}
-
-.container1 {
-  margin-top: -3px;
-  margin-left: 50px;
-  justify-content: center;
-  align-items: center;
-}
-
-.coupon {
-  height: 200px;
-  width: 400px;
-  left: 0px;
-  top: 0px;
-  border-radius: 40px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
-  background-color: #f1f1f1;
-  overflow: hidden;
-}
-
-.union {
-  height: 11.961060523986816px;
-  width: 350px;
-  left: -1.5px;
-  top: 74.5194091796875px;
-  border-radius: 0px;
-}
-
-.polygon-left {
-  position: absolute;
-  width: 17px;
-  height: 10px;
-  left: 6px;
-  top: calc(50% - 10px / 2 + 13.5px);
-  background: #ffffff;
-  border-radius: 1px;
-  transform: matrix(0, -1, -1, 0, 0, 0);
-}
-
-.detail {
+.side-nav-profile{
   margin-top: 10px;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.detail td {
-  padding: 8px;
-}
-
-.detail td:first-child {
-  font-weight: bold;
-  width: 120px;
-}
-
-.container-total-orders {
-  margin-top: 23px;
-  margin-left: 20px;
-  margin-right: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-.coupon-total-orders {
-  height: 150px;
-  width: 250px;
-  border-radius: 40px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
-  background-color: #f1f1f1;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   background-color: rgb(255, 255, 255);
-  border: 2px solid black;
-}
-
-.polygon-right-total-orders {
-  font-size: 25px;
-  font-weight: 800;
-}
-
-.value-total-orders {
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.debitcard-conatiner {
-  margin-left: 980px;
-  width: 35vh;
-  display: flex;
-  text-align: center;
-}
-
-
-.coupon-transfer-card {
-  /* padding-top: 20px; */
-  margin-top: 60px;
-  margin-left: 220px;
-  justify-content: center;
-  align-items: center;
-  height: 860px;
-  width: 800px;
-  left: 0px;
-  top: 0px;
-  border: 2px solid black;
-  border-radius: 40px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
-  /* background-color: #42b86f; */
-  color: white;
-  overflow: hidden;
-}
-.coupon-transfer-card-left {
-  /* padding-top: 20px; */
-  margin-top: -860px;
-  margin-left: 1250px;
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
-  height: 860px;
-  width: 800px;
-  left: 0px;
-  top: 0px;
-  border: 2px solid black;
-  border-radius: 40px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
-  background-color: #ffffff;
-  color: white;
-  overflow: hidden;
-}
-
-.polygon-right-transfer-card {
-  color: white;
-  background-color: rgb(0, 0, 0);
-  height: 150px;
-  margin-top: -20px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.45);
-}
-
-.bankdetails {
-  margin-left: 5px;
-}
-
-.card-container-scroller {
-  margin-top: 0px;
-  max-height: 705px;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-}
-
-.card-container-scroller::-webkit-scrollbar {
-  width: 6px;
-}
-
-.card-container-scroller::-webkit-scrollbar-thumb {
-  background-color: transparent;
-}
-
-.card-container-scroller::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-.card-scroller {
-  color: black;
-  background-color: #f7f7f7;
-  border: 2px solid #ccc;
-  border-radius: 8px;
+  border-radius: 0px 50px 50px 0px;
   padding: 20px;
-  margin: 20px;
+  height: 260px;
+  width: 290px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+
+  
+}
+.side-nav-dashboard{
+  background-color: black;
+  width: 290px;
+}
+.dashboard-image-card{
+  height: 170px;
+  width: 170px;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+  overflow: hidden;
+
+}
+.dashboard-screnn ul {
+  list-style: none;
+  /* background-color: red; */
+  margin-top: 70px;
+  padding: 0;
 }
 
-.card-scroller h3 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.dashboard-screnn li {
+  margin-bottom: 30px;
+
 }
 
-.card-scroller p {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.card-scroller::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background-color: #ccc;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-}
-
-.card-scroller::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background-color: #ccc;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-
-.card-scroller:before,
-.card-scroller:after {
-  z-index: -1;
-}
-
-.card-scroller h3,
-.card-scroller p {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 4px;
-  margin: 0;
-}
-
-.card-scroller h3 {
-  margin-bottom: 15px;
-}
-
-.card-scroller p:last-child {
-  margin-bottom: 0;
-}
-
-
-
-.main-content.hidden {
-  display: none;
-}
-
-.side-nav-button{
-  border: none;
-  background-color: transparent;
+.dashboard-screnn button {
+  padding: 15px 20px;
+  width: 170px;
+  background-color: #000000;
   color: white;
-  font-size: 25px;
-  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  border: 1px solid white;
+  border-radius: 30px;
+  transition: 0.6s;
+
+}
+.dashboard-screnn button:hover {
+  padding: 15px 20px;
+  width: 370px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 900;
+  border: 1px solid rgb(255, 0, 0);
+  border-radius: 30px;
+  transition: 0.6s;
+}
+
+@media (max-width: 730px) {
+  .dashboard-screen {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .side-nav-profile {
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 50px;
+  }
+  
+  .side-nav-dashboard {
+    width: 100%;
+  }
 }

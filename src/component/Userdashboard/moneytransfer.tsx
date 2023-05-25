@@ -79,11 +79,6 @@ const Moneytran = () => {
       console.error("Error fetching API data:", error);
     }
   };
-  // if (transferapi.success) {
-  //   setUniupi("");
-  //   setUpi("");
-  //   setamount("");
-  // // }
   console.log("api send data line 75------>>>", transferapi.success);
   return (
     <>

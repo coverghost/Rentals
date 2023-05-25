@@ -1,18 +1,14 @@
 .nav_bar {
-  display: flex; /* display items in a row */
-  justify-content: center; /* center items horizontally */
-  /* background-color: rosybrown; */
+  display: flex;
+  justify-content: center; 
   position: sticky;
-}
-.logo{
-
 }
 
 .nav_bar li {
-  text-decoration: none; /* remove text decoration */
-  padding: 10px; /* add some padding between items */
-  display: inline-block; /* display items as a block in one line */
-  /* background-color: red; */
+  text-decoration: none;
+  padding: 10px; 
+  display: inline-block; 
+
 }
 .nav_bar li a {
   text-decoration: none;
@@ -116,8 +112,6 @@
 }
 
 .popup-content {
-  /* Styles for the popup content */
-  /* background-color: #ff0000; */
   padding: 20px;
   text-align: center;
 }

@@ -41,7 +41,6 @@ interface IUser {
   updatedAt: Date;
 }
 const Userdashboard = () => {
-  
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [token, setToken] = useState("");
   const [userdetail, SetUserDetail] = useState<any>();
@@ -129,260 +128,27 @@ const Userdashboard = () => {
         break;
     }
   };
-  console.log("userdetail line 132 ---->>",userdetail?.useracount[0]?.totalamount)
+  // console.log("userdetail line 132 ---->>",((userdetail?userdetail:0)?.useracount[0]?.totalamount)?(userdetail?.useracount[0]?.totalamount):0)
 
   return (
     <>
-      <div className={`dashboard ${isSidebarOpen ? "sidebar-open" : ""}`}>
-        <div className="sidebar">
-          <div className="User-Name">{name}</div>
-          <div className="card1">
-            <img src={image} alt="profile" className="icon" />
+      <div className="dashboard-screnn">
+        <div className="side-nav-dashboard">
+          <div className="side-nav-profile">
+            <div className="dashboard-image-card"><p>image</p></div>
+            <div><h1>Ayush Arya</h1></div>
           </div>
-          {
-            <div className="container1">
-              <div className="coupon">
-                <div className="union">
-                  <div className="polygon-right">
-                    {" "}
-                    <div className="profile">
-                      <div className="user-detail-on-card">
-                        <table className="detail">
-                          <tbody>
-                            <tr>
-                              <td>
-                                UserId<span> :</span>{" "}
-                              </td>
-                              <td>{userdetail?.user?.userId}</td>
-                            </tr>
-                            <tr>
-                              <td>
-                                mobile<span> :</span>{" "}
-                              </td>
-                              <td>{userdetail?.user?.personal?.mobile}</td>
-                            </tr>
-                            <tr>
-                              <td>
-                                DOB <span> :</span>
-                              </td>
-                              <td>
-                                {(userdetail?.user?.personal?.dob
-                                  ? userdetail?.user?.personal?.dob
-                                  : "0"
-                                ).length > 2
-                                  ? userdetail?.user?.personal?.dob
-                                  : "DD-MM-YYYY"}
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                ADDRESS <span> :</span>
-                              </td>
-                              <td> {Address}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          }
+          <ul>
+            <li><button>Profile</button></li>
+            <li><button>Acounts</button></li>
+            <li><button>Transactions</button></li>
+            <li><button>Benificery</button></li>
+            <li><button>Cards</button></li>
 
-          <ul className="sidebar-nav">
-            {/* <button className="" onClick={() => screenchange("transaction")}>
-              Transaction
-            </button> */}
-            <li className="sidebar-item">
-              <button
-                className="side-nav-button"
-                onClick={() => screenchange("Profile")}
-              >
-                Profile
-              </button>
-            </li>
-            <li className="sidebar-item">
-              <button
-                className="side-nav-button"
-                onClick={() => screenchange("passbook")}
-              >
-                Passbook
-              </button>
-            </li>
-            <li className="sidebar-item">
-              <button
-                className="side-nav-button"
-                onClick={() => screenchange("card")}
-              >
-                Apply for Card
-              </button>
-            </li>
 
-            <li className="sidebar-item">
-              <button
-                className="side-nav-button"
-                onClick={() => screenchange("transaction")}
-              >
-                Make Transaction
-              </button>
-            </li>
+
+
           </ul>
-        </div>
-
-        {/* {dashboard part } */}
-
-        <div className={`main-content ${transactionscreen ? " " : "hidden"}`}>
-          <h1 className="transaction-heading">Make Transaction</h1>
-          
-          <div className="debitcard-conatiner">
-            <div>Total Balance = {userdetail?.useracount[0]?.totalamount}</div>
-            <div>Total Debt = {userdetail?.useracount[0]?.totaldebt}</div>
-
-            <DebitCard
-              cardNumber={"7890 0762 3548 6523"}
-              cardHolder={"AYUSH ARYA"}
-              expirationDate={"12/25"}
-              cvv={"132"}
-            />
-          </div>
-          {
-            <div className="coupon-transfer-card">
-              <div className="polygon-right-transfer-card">
-                <MoneyTransferForm
-                  bankname={userdetail?.user?.bankDetails?.bankName}
-                  Accnumber={userdetail?.user?.bankDetails?.accountNumber}
-                  Customer={userdetail?.user?.bankDetails?.accountName}
-                  IfscCode={userdetail?.user?.bankDetails?.ifsc}
-                  UpiId={userdetail?.user?.bankDetails?.upiId}
-                />
-              </div>
-              <div className="card-container-scroller">
-                {data?.map((item, index) => (
-                  <Usercard
-                    bankName={
-                      item?.bankDetails?.bankName
-                        ? item?.bankDetails?.bankName
-                        : ""
-                    }
-                    cardNumber={
-                      item?.bankDetails?.accountNumber
-                        ? item?.bankDetails?.accountNumber
-                        : ""
-                    }
-                    cardHolder={
-                      item?.bankDetails?.accountName
-                        ? item?.bankDetails?.accountName
-                        : ""
-                    }
-                    expirationDate={
-                      item?.bankDetails?.upiId ? item?.bankDetails?.upiId : ""
-                    }
-                    cvv={item?.bankDetails?.ifsc ? item?.bankDetails?.ifsc : ""}
-                  />
-                ))}
-              </div>
-            </div>
-          }
-          {
-            <div className="coupon-transfer-card-left">
-              <Moneytransfer/>
-            </div>
-          }
-        </div>
-        <div className={`main-content ${cardscreen ? " " : "hidden"}`}>
-          <h1 className="transaction-heading">Apply For Card</h1>
-        </div>
-        <div className={`main-content ${passbookscreen ? " " : "hidden"}`}>
-          <h1 className="transaction-heading">Passbook</h1>
-        </div>
-        <div className={`main-content ${profilescreen ? " " : "hidden"}`}>
-          <h1 className="transaction-heading">Profile</h1>
-          <div className="profile-card">
-            <div className="Bank-detail">
-              <h1>Bank Details</h1>
-            </div>
-            <div className="Bank-detail-card">
-              <table>
-                <td>
-                  <tr>
-                    <p>Bank Name</p>{" "}
-                  </tr>
-                  <tr>
-                    <p>Acc. Number</p>
-                  </tr>
-                  <tr>
-                    {" "}
-                    <p>IFSC Code</p>{" "}
-                  </tr>
-                  <tr>
-                    <p>Upi Id</p>
-                  </tr>
-                </td>
-                <td>
-                  <tr>
-                    <p>:</p>{" "}
-                  </tr>
-                  <tr>
-                    <p>:</p>
-                  </tr>
-                  <tr>
-                    {" "}
-                    <p>:</p>{" "}
-                  </tr>
-                  <tr>
-                    <p>:</p>
-                  </tr>
-                </td>
-                <td>
-                  <tr>
-                    <p>{userdetail?.user?.bankDetails?.bankName}</p>{" "}
-                  </tr>
-                  <tr>
-                    <p>{userdetail?.user?.bankDetails?.accountNumber}</p>
-                  </tr>
-                  <tr>
-                    {" "}
-                    <p>{userdetail?.user?.bankDetails?.ifsc}</p>{" "}
-                  </tr>
-                  <tr>
-                    <p>{userdetail?.user?.bankDetails?.upiId}</p>
-                  </tr>
-                </td>
-              </table>
-            </div>
-            <div className="Bank-detail">
-              <h1>KYC Details</h1>
-            </div>
-            <div className="Bank-detail-card">
-              <table>
-                <td>
-                  <tr>
-                    <p>Adhar Card</p>{" "}
-                  </tr>
-                  <tr>
-                    <p>PAN Card</p>
-                  </tr>
-                </td>
-                <td>
-                  <tr>
-                    <p>:</p>{" "}
-                  </tr>
-                  <tr>
-                    <p>:</p>
-                  </tr>
-                </td>
-                <td>
-                  <tr>
-                    <p>{userdetail?.user?.bankDetails?.bankName}</p>{" "}
-                  </tr>
-                  <tr>
-                    <p>{userdetail?.user?.bankDetails?.accountNumber}</p>
-                  </tr>
-                </td>
-              </table>
-            </div>
-          </div>
         </div>
       </div>
     </>
