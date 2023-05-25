@@ -44,9 +44,9 @@ const Navbar = () => {
   return (
     <>
       <div className="nav_bar">
-        <div className="logo">{/* <img src={logo} alt="logo" /> */}</div>
+        <div className="logo">{/* <img src={logo} alt="logo" /> */}Arya Bank</div>
         {unitoken ? (
-          <ul className="nav_bar li a">
+          <ul className="nav_bar">
             <li>
               <Link to="/">HOME</Link>
             </li>
@@ -64,7 +64,7 @@ const Navbar = () => {
             </li>
           </ul>
         ) : (
-          <ul className="nav_bar li a">
+          <ul className="nav_bar">
             <li>
               <Link to="/">HOME</Link>
             </li>

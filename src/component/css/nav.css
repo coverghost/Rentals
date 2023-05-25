@@ -2,6 +2,10 @@
   display: flex; /* display items in a row */
   justify-content: center; /* center items horizontally */
   /* background-color: rosybrown; */
+  position: sticky;
+}
+.logo{
+
 }
 
 .nav_bar li {
@@ -46,10 +50,19 @@
   outline: none;
   cursor: pointer;
   font-size: 16px;
-  margin-top: 5px;
-  margin-bottom: 9px;
+  margin-top: 15px;
+  /* margin-bottom: px; */
   margin-right: 25px;
   height: auto; /* color: #fff; */
+  /* background-color: red; */
+  height: 50px;
+  width: 140px;
+  font-size: 25px;
+  font-weight: 900;
+  display: flex; /* display items in a row */
+  justify-content: center; 
+  align-items: center;
+
 }
 .logo img {
   height: 80px;
