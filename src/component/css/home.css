@@ -2,7 +2,7 @@ body {
   max-width: auto;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .home-body-conatainer {
@@ -41,10 +41,38 @@ body {
   height: auto;
 }
 
-@media (max-width: 768px) {
+.home-content{
+  margin-top: 450px;
+  margin-right: 250px;
+  /* background-color: red; */
+  width: 700px;
+  height: 200px;
+  border-radius: 50px;
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+  background-color: rgb(255, 255, 255);
+  padding: 50px;
+}
+.home-content h1{
+  font-size: 50px;
+  /* background-color: red; */
+  margin-top: -19px;
+}
+@media (max-width: 1568px) {
   .home-body-container {
     flex-direction: column;
     align-items: center;
+  }
+  .home-content{
+    margin-right: 100px;
+    margin-left:60px;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+  .home-content h1{
+    font-size: 40px;
+    margin-left:60px;
+    margin-bottom: 20px;
+    flex: 1;
   }
 
   .home-body-card {
@@ -54,3 +82,4 @@ body {
     flex: 1;
   }
 }
+
