@@ -12,7 +12,7 @@ const Home = () => {
         <div className="home-content">
           <div>
             <h1>Online Banking</h1>
-            <h4>The Power and Convenience of Online Banking</h4>
+            <h4>" The Power and Convenience of Online Banking. "</h4>
             <p>
               Online banking has transformed the way we handle our finances. It
               offers convenience, allowing us to access our accounts, make
@@ -23,6 +23,12 @@ const Home = () => {
             </p>
           </div>
         </div>
+      </div>
+      <div className="hero-section">
+        <h1>Ayush Arya</h1>
+      </div>
+      <div className="footer-section">
+        <h1>Footer Section</h1>
       </div>
     </>
   );

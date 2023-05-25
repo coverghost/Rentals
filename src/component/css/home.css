@@ -57,6 +57,11 @@ body {
   /* background-color: red; */
   margin-top: -19px;
 }
+.hero-section{
+  background-color: red;
+  padding: 25px;
+  margin-top: 520px;
+}
 @media (max-width: 1568px) {
   .home-body-container {
     flex-direction: column;
@@ -83,3 +88,10 @@ body {
   }
 }
 
+.footer-section{
+  background-color: black;
+  height: 40vh;
+}
+.footer-section h1{
+color: white;
+}
