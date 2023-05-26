@@ -123,6 +123,9 @@
   font-weight: 800;
   float: right;
 }
+.logo img{
+  height: 65px;
+}
 
 @media (max-width: 768px) {
   .nav_bar {

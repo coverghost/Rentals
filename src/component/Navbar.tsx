@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../context/Context";
 import { Link, useNavigate } from "react-router-dom";
 import Popup from "./pop";
+import logo from "./image/logo.png"
 import "./css/nav.css";
 
 const Navbar = () => {
@@ -44,7 +45,7 @@ const Navbar = () => {
   return (
     <>
       <div className="nav_bar">
-        <div className="logo">{/* <img src={logo} alt="logo" /> */}Arya Bank</div>
+        <div className="logo"><img src={logo} alt="logo" className="nav-logo" /></div>
         {unitoken ? (
           <ul className="nav_bar">
             <li>
