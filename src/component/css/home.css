@@ -10,8 +10,13 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   height: 35vh;
-  background-color: rgb(0, 0, 0);
+  background-color:hsl(14, 88%, 56%);
+  background-image: url("../image/coverimage.jpg");
   /* box-shadow: 3px 10px 19px 4px blue ; */
+  background-position-x: calc(70% - 10px); /* Adjust the horizontal position using calc() */
+  background-position-y: calc(40% + 10px);
+  background-size:calc(40%);
+  background-repeat: no-repeat;
 }
 
 .home-body-card {
