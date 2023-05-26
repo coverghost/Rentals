@@ -1,0 +1,79 @@
+.profile-heading {
+  background-color: black;
+  color: white;
+  padding: 0.1px;
+  border-radius: 0px 0px 40px 40px;
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+}
+.profile-heading-name {
+  font-size: 30px;
+}
+
+@media (max-width: 768px) {
+  .profile-heading {
+    border-radius: 0;
+  }
+
+  .profile-heading-name {
+    font-size: 24px;
+  }
+}
+
+.profile-body {
+  margin: 20px 0px 0px 0px;
+  /* border: 2px solid black; */
+  padding: 0px 90px 0px 90px;
+  /* display: flex; */
+  height: 100%;
+}
+.Personal-detail-right {
+  flex-direction: column;
+  display: flex;
+  float: right;
+  height: 100%;
+  /* background-color: rgb(30, 255, 0); */
+}
+.Personal-content-right {
+  margin: 90px 0px 20px 0px;
+  border: 2px solid black;
+  border-radius: 35px;
+  height: 250px;
+  width: 550px;
+  float: right;
+  /* background-color: rgb(255, 0, 140); */
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+
+}
+
+.Personal-detail-left {
+  flex-direction: column;
+  display: flex;
+  float: left;
+  height: 100%;
+  /* background-color: aqua; */
+}
+
+.Personal-content-left {
+  margin: 90px 0px 20px 0px;
+  border: 2px solid black;
+  border-radius: 35px;
+  height: 250px;
+  width: 550px;
+  float: left;
+  /* background-color: rgb(43, 0, 255); */
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+
+}
+.Personal-content-left table{
+    margin: 0px 0px 0px 70px;
+    border-collapse: collapse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 70%;
+}
+
+.Personal-content-left table td tr{
+    font-size: 23px;
+}

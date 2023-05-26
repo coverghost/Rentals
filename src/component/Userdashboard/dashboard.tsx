@@ -8,6 +8,9 @@ import MoneyTransferForm from "./transaction";
 import Usercard from "./usercard";
 import Moneytransfer from "./moneytransfer";
 import { MyContext } from "../../context/Context";
+import userimage from "../image/user.png";
+import Profile from "./profile";
+// import userimage from"https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/profile-photos-4.jpg"
 
 interface IUser {
   _id?: string;
@@ -45,10 +48,10 @@ const Userdashboard = () => {
   const [token, setToken] = useState("");
   const [userdetail, SetUserDetail] = useState<any>();
   const [getAllUser, setgetAllUser] = useState<any>();
-  const [transactionscreen, settransactionscreen] = useState(true);
+  const [transactionscreen, settransactionscreen] = useState(false);
   const [cardscreen, setcardscreen] = useState(false);
   const [passbookscreen, setpassbookscreen] = useState(false);
-  const [profilescreen, setprofilescreen] = useState(false);
+  const [profilescreen, setprofilescreen] = useState(true);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -95,6 +98,7 @@ const Userdashboard = () => {
   const data: IUser[] = getAllUser?.Userlist;
 
   const screenchange = (value: any) => {
+    console.log("value -------- line 102=>",value)
     switch (value) {
       case "transaction":
         settransactionscreen(true);
@@ -135,20 +139,53 @@ const Userdashboard = () => {
       <div className="dashboard-screnn">
         <div className="side-nav-dashboard">
           <div className="side-nav-profile">
-            <div className="dashboard-image-card"><p>image</p></div>
-            <div><h1>Ayush Arya</h1></div>
+            <div className="dashboard-image-card">
+              <img src={userimage} alt="userprofile" />{" "}
+            </div>
+            <div>
+              <p>
+                <span className="User-name">{name}</span> <br />{" "}
+                {userdetail?.user?.userId
+                  ? userdetail?.user?.userId
+                  : "User Id"}
+              </p>
+            </div>
           </div>
           <ul>
-            <li><button>Profile</button></li>
-            <li><button>Acounts</button></li>
-            <li><button>Transactions</button></li>
-            <li><button>Benificery</button></li>
-            <li><button>Cards</button></li>
-
-
-
-
+            <li>
+              <button
+                onClick={() => {
+                  screenchange("Profile");
+                }}
+              >
+                Profile
+              </button>
+            </li>
+            <li>
+              <button  onClick={() => {
+                  screenchange("passbook");
+                }}>Acounts</button>
+            </li>
+            <li>
+              <button>Transactions</button>
+            </li>
+            <li>
+              <button>Benificery</button>
+            </li>
+            <li>
+              <button>Cards</button>
+            </li>
           </ul>
+        </div>
+        <div className={`main-content ${profilescreen ? " " : "hidden"}`}>
+          <div className="profile-screen">
+            <Profile userdetail={userdetail} />
+          </div>
+        </div>
+        <div className={`main-content ${passbookscreen ? " " : "hidden"}`}>
+          <div className="profile-screen">
+            <MoneyTransferForm bankname={""} Accnumber={""} Customer={""} IfscCode={""} UpiId={""} />
+          </div>
         </div>
       </div>
     </>
