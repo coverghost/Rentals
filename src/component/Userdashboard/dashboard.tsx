@@ -49,8 +49,8 @@ const Userdashboard = () => {
   const [getAllUser, setgetAllUser] = useState<any>();
   const [transactionscreen, settransactionscreen] = useState(false);
   const [cardscreen, setcardscreen] = useState(false);
-  const [passbookscreen, setpassbookscreen] = useState(false);
-  const [profilescreen, setprofilescreen] = useState(true);
+  const [passbookscreen, setpassbookscreen] = useState(true);
+  const [profilescreen, setprofilescreen] = useState(false);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -181,7 +181,7 @@ const Userdashboard = () => {
         </div>
         <div className={`main-content ${passbookscreen ? " " : "hidden"}`}>
           <div className="profile-screen">
-            <MoneyTransferForm bankname={""} Accnumber={""} Customer={""} IfscCode={""} UpiId={""} />
+            <MoneyTransferForm userdetail={userdetail} />
           </div>
         </div>
       </div>
