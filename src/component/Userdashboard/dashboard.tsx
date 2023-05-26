@@ -8,7 +8,6 @@ import MoneyTransferForm from "./transaction";
 import Usercard from "./usercard";
 import Moneytransfer from "./moneytransfer";
 import { MyContext } from "../../context/Context";
-import userimage from "../image/user.png";
 import Profile from "./profile";
 // import userimage from"https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/profile-photos-4.jpg"
 
@@ -93,8 +92,7 @@ const Userdashboard = () => {
       : "Pincode",
   ].join(", ");
   const image =
-    userdetail?.user?.personal?.photo ||
-    "https://pixlok.com/wp-content/uploads/2022/02/Profile-Icon-SVG-09856789.png";
+    userdetail?.user?.personal?.photo || "https://pixlok.com/wp-content/uploads/2022/02/Profile-Icon-SVG-09856789.png";
   const data: IUser[] = getAllUser?.Userlist;
 
   const screenchange = (value: any) => {
@@ -133,14 +131,13 @@ const Userdashboard = () => {
     }
   };
   // console.log("userdetail line 132 ---->>",((userdetail?userdetail:0)?.useracount[0]?.totalamount)?(userdetail?.useracount[0]?.totalamount):0)
-
   return (
     <>
       <div className="dashboard-screnn">
         <div className="side-nav-dashboard">
           <div className="side-nav-profile">
             <div className="dashboard-image-card">
-              <img src={userimage} alt="userprofile" />{" "}
+              <img src={image} alt="userprofile" />{" "}
             </div>
             <div>
               <p>
@@ -153,7 +150,7 @@ const Userdashboard = () => {
           </div>
           <ul>
             <li>
-              <button
+              <button className="side-nav-option"
                 onClick={() => {
                   screenchange("Profile");
                 }}
@@ -162,18 +159,18 @@ const Userdashboard = () => {
               </button>
             </li>
             <li>
-              <button  onClick={() => {
+              <button className="side-nav-option"  onClick={() => {
                   screenchange("passbook");
                 }}>Acounts</button>
             </li>
             <li>
-              <button>Transactions</button>
+              <button className="side-nav-option">Transactions</button>
             </li>
             <li>
-              <button>Benificery</button>
+              <button className="side-nav-option">Benificery</button>
             </li>
             <li>
-              <button>Cards</button>
+              <button className="side-nav-option">Cards</button>
             </li>
           </ul>
         </div>

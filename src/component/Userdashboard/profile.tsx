@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/profile.css";
+import open_image from "../image/open-eye.png"
+import close_image from "../image/close-eye.png"
 
 const Profile = ({ userdetail }: any) => {
   console.log("userdetail----->", (userdetail?.user?.personal?.dob)?(userdetail?.user?.personal?.dob):"DD");
+  const [showpasww ,setshowpassw] = useState(false)
+  const showpassword = ()=>{
+    setshowpassw(!showpasww)
+  }
+
   return (
     <>
       {" "}
@@ -15,7 +22,7 @@ const Profile = ({ userdetail }: any) => {
         {/* right  */}
         <div className="Personal-detail-right">
           <div className="Personal-content-right">
-            <h1>Personal Detail</h1>
+            <h1>Card Detail</h1>
           </div>
           <div className="Personal-content-right">
             <h1>Personal-detail-right</h1>
@@ -41,8 +48,14 @@ const Profile = ({ userdetail }: any) => {
               <td>
                 <tr>{userdetail?.user?.personal?.name}</tr>
                 <tr>{userdetail?.user?.personal?.mobile}</tr>
-                <tr>{userdetail?.user?.personal?.password}</tr>
+                <tr>{showpasww?(userdetail?.user?.personal?.password):"*******"}</tr>
                 <tr>{(userdetail?.user?.personal?.dob)?(userdetail?.user?.personal?.dob):"DD-MM-YYYY"}</tr>
+              </td>
+              <td>
+                <tr>{" "}</tr>
+                <tr>{" "}</tr>
+                <tr>{" "}<button className="show-password" onClick={showpassword}><span className="monkey-emoji">{showpasww ? <img src={open_image} alt="" />:<img src={close_image} alt="" />}</span> </button></tr>
+                <tr>{" "}</tr>
               </td>
             </table>
           </div>
