@@ -1,46 +1,85 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "../css/transaction.css";
 
-type DebitCardProps = {
-  bankname: string;
-  Accnumber: string;
-  Customer: string;
-  IfscCode: string;
-  UpiId: string;
-};
 
-const MoneyTransferForm: React.FC<DebitCardProps> = ({
-  bankname,
-  Accnumber,
-  Customer,
-  IfscCode,
-  UpiId,
-}) => {
+const MoneyTransferForm = ({ userdetail }: any) => {
+  console.log(
+    "userdetail----->",
+    userdetail?.user?.personal?.dob ? userdetail?.user?.personal?.dob : "DD"
+  );
+  const [showpasww, setshowpassw] = useState(false);
+  const showpassword = () => {
+    setshowpassw(!showpasww);
+  };
   return (
     <>
-      <div className="Passbook">
-        <div className="heading">
-          <h3>
-            Passbook Of bank ( <span className="bankdetails">{bankname}</span> )
-          </h3>
+      {" "}
+      <div className="transaction-heading">
+        <h5>
+          <span className="transaction-heading-name">Account Details</span>{" "}
+        </h5>
+      </div>
+      <div className="transaction-body">
+        {/* up  */}
+        <div className="transaction-detail-right">
+          <div className="transaction-Personal-content-right">
+            <h2>Total Balance</h2>
+            <h3>5,000,000</h3>
+          </div>
+          <div className="transaction-Personal-content-right">
+            <h2>Total Debt</h2>
+            <h3>500</h3>
+          </div>
+          <div className="transaction-Personal-content-right">
+            <h2>Total transaction</h2>
+            <p>Today : {"50"} <br /> Yesterday : {"10"} <br /> This Week : {"70"}</p>
+          </div>
         </div>
-      </div>
-      <div className="left-data">
-        <h3>
-          Cutomer Name {" : "} <span className="bankdetails">{Customer}</span>
-        </h3>
-        <h3>
-          Acount Number{" : "} <span className="bankdetails">{Accnumber}</span>
-        </h3>
-      </div>
-      <div className="right-data">
-        <h3>
-          IFCS Code{" : "} <span className="bankdetails">{IfscCode}</span>
-        </h3>
-        <h3>
-          UPI ID{" : "} <span className="bankdetails">{UpiId}</span>
-        </h3>
+        {/* down  */}
+        <div className="transaction-detail-down">
+          <div className="transaction-Personal-content-down">
+            <h2>Total Balance</h2>
+            <h3>5,000,000</h3>
+          </div>
+          <div className="transaction-Personal-content-down">
+            <h2>Total Balance</h2>
+            <h3>5,000,000</h3>
+          </div>
+          <div className="transaction-Personal-content-down">
+            <h2>Total Balance</h2>
+            <h3>5,000,000</h3>
+          </div>
+          <div className="transaction-Personal-content-down">
+            <h2>Total Balance</h2>
+            <h3>5,000,000</h3>
+          </div>
+          <div className="transaction-Personal-content-down">
+            <h2>Total Balance</h2>
+            <h3>5,000,000</h3>
+          </div>
+          <div className="transaction-Personal-content-down">
+            <h2>Total Balance</h2>
+            <h3>5,000,000</h3>
+          </div>
+          <div className="transaction-Personal-content-down">
+            <h2>Total Balance</h2>
+            <h3>5,000,000</h3>
+          </div>
+
+          <div className="transaction-Personal-content-down">
+            <h2>Total Balance</h2>
+            <h3>5,000,000</h3>
+          </div>
+          <div className="transaction-Personal-content-down">
+            <h2>Total Balance</h2>
+            <h3>5,000,000</h3>
+          </div>
+          <div className="transaction-Personal-content-down">
+            <h2>Total Balance</h2>
+            <h3>5,000,000</h3>
+          </div>
+        </div>
       </div>
     </>
   );
