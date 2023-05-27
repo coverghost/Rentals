@@ -54,18 +54,51 @@
   height: 300px;
   width: 600px;
   float: right;
-  background-color: rgb(255, 0, 0);
+  overflow: hidden;
+  /* background-color: rgb(255, 0, 0); */
   box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
 
+}
+.Moneytran-Personal-content-right-benificery-card h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin-top: -1px;
+  width: 250px;
+  color: white;
+  float: left;
+  border-radius: 0px 0px 40px 40px;
+  background-color: rgb(0, 0, 0);
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+}
+.Moneytran-Personal-content-right-benificery-card h3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-top: -1px;
+  margin-right: -20px;
+  width: 100px;
+  color: white;
+  float: right;
+  border-radius: 0px 40px 40px 40px;
+  background-color: rgb(0, 0, 0);
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+}
+.Moneytran-Personal-content-right-benificery-card h3 img{
+  height: 30px;
+  margin-right: 20px;
 }
 .Moneytran-Personal-content-right {
   margin: 27px 90px 10px 90px;
   border: 2px solid black;
   border-radius: 35px;
   height: 250px;
-  width: 450px;
+  width: 500px;
   float: right;
-  background-color: rgb(255, 213, 0);
+  /* background-color: rgb(255, 213, 0); */
   box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
 }
 

@@ -3,6 +3,7 @@ import "../css/moneytransfer.css";
 import image from "../image/previous.png";
 import { MyContext } from "../../context/Context";
 import { dashboarService } from "../dashboardservice.tsx/dashboard";
+import add_benificery from "../image/add benificery.png"
 
 type DebitCardProps = {
   cardNumber: string;
@@ -91,16 +92,14 @@ const Moneytran = () => {
         {/* up  */}
         <div className="Moneytran-detail-right">
           <div className="Moneytran-Personal-content-right-benificery-card">
-            <h2>Total Balance</h2>
+            <h2>Beneficiary </h2>
             <h3>
-              "heading h3 "
+              <img src={add_benificery} alt="" />
             </h3>
           </div>
           <div className="Moneytran-Personal-content-right">
             <h2>Total Debt</h2>
-            <h3>
-             heading h3
-            </h3>
+            <h3>heading h3</h3>
           </div>
         </div>
       </div>
