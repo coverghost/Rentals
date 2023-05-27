@@ -45,7 +45,7 @@
   /* background-color: rgb(30, 255, 0); */
   padding: 0px 15px 18px 10px;
   overflow: hidden;
-  margin-top: -630px;
+  margin-top: -530px;
 }
 .Moneytran-Personal-content-right-benificery-card{
   margin: 27px 90px 10px 90px;
@@ -153,6 +153,18 @@
 }
 .transaction-card-heading-box {
   /* background-color: green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.moneytransfer-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;

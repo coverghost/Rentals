@@ -3,7 +3,8 @@ import "../css/moneytransfer.css";
 import image from "../image/previous.png";
 import { MyContext } from "../../context/Context";
 import { dashboarService } from "../dashboardservice.tsx/dashboard";
-import add_benificery from "../image/add benificery.png"
+import add_benificery from "../image/add benificery.png";
+import BenifercyPopup from "./benificeryPop";
 
 type DebitCardProps = {
   cardNumber: string;
@@ -24,6 +25,20 @@ const Moneytran = () => {
   const [upiid, setUpi] = useState("");
   const [amount, setamount] = useState("");
   const [transferapi, settransferapi] = useState<any>("");
+  const [allUser, setalluser] = useState<any>("");
+
+  const { setClosepopup_benificer } = useContext(MyContext);
+  const { closepopup_benificer } = useContext(MyContext);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const openPopup = () => {
+    console.log("clicked by icon");
+    setClosepopup_benificer(false);
+    setShowPopup(true);
+  };
+  const closePopup = () => {
+    setShowPopup(false);
+  };
 
   const screenchange = (value: any) => {
     console.log("value---->>", value);
@@ -56,6 +71,7 @@ const Moneytran = () => {
     if (storedToken) {
       setToken(storedToken);
     }
+    Add_Beneficiary()
   }, []);
   // for upi transaction
   const handleUpiChange = (event: any) => {
@@ -80,7 +96,17 @@ const Moneytran = () => {
       console.error("Error fetching API data:", error);
     }
   };
-  console.log("api send data line 75------>>>", transferapi.success);
+  const Add_Beneficiary = async () => {
+    try {
+      const senddata = await dashboarService.getAllUser(
+      );
+      setalluser(senddata);
+    } catch (error) {
+      console.error("Error fetching API data:", error);
+    }
+  };
+  const userListData = (allUser?.Userlist)?(allUser?.Userlist):[]
+  console.log("api send data line 107------>>>", userListData);
   return (
     <>
       <div className="Moneytran-heading">
@@ -94,7 +120,7 @@ const Moneytran = () => {
           <div className="Moneytran-Personal-content-right-benificery-card">
             <h2>Beneficiary </h2>
             <h3>
-              <img src={add_benificery} alt="" />
+              <img src={add_benificery} alt="" onClick={openPopup} />
             </h3>
           </div>
           <div className="Moneytran-Personal-content-right">
@@ -102,13 +128,21 @@ const Moneytran = () => {
             <h3>heading h3</h3>
           </div>
         </div>
+        {closepopup_benificer
+          ? ""
+          : showPopup && (
+              <div className="moneytransfer-popup-container">
+                {" "}
+                <BenifercyPopup userlist ={userListData} token={token} onClose={closePopup} />
+              </div>
+            )}
       </div>
 
-      <div className="Moneytran-heading">
+      {/* <div className="Moneytran-heading">
         <img src={image} alt="" onClick={() => screenchange("back")} />
         <h1 className="heading-money">Transfer Money</h1>
-      </div>
-      <div className={`main-content-transfer ${optionscreen ? "" : "hidden"}`}>
+      </div> */}
+      {/* <div className={`main-content-transfer ${optionscreen ? "" : "hidden"}`}>
         <div className="transaction-option">
           <div className="voneytransfer-card">
             <button onClick={() => screenchange("upiid")}>
@@ -119,14 +153,12 @@ const Moneytran = () => {
             <button onClick={() => screenchange("bank")}>Through Bank</button>
           </div>
         </div>
-      </div>
-      <div className={`main-content-transfer ${bankscreen ? "" : "hidden"}`}>
+      </div> */}
+      {/*<div className={`main-content-transfer ${bankscreen ? "" : "hidden"}`}>
         <h1 className="">BANK Transfer</h1>
-        {/* Bank transfer content */}
-      </div>
-      <div className={`main-content-transfer ${Upiscreen ? "" : "hidden"}`}>
-        {/* <h1>UPI Transfer</h1> */}
-        {/* UPI transfer content */}
+      </div>*/}
+      {/* <div className={`main-content-transfer ${Upiscreen ? "" : "hidden"}`}>
+    
         <form onSubmit={handleSubmit} className="formm">
           <div>
             <input
@@ -150,7 +182,8 @@ const Moneytran = () => {
             {"Send"}
           </button>
         </form>
-      </div>
+       
+      </div> */}
     </>
   );
 };
