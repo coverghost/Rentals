@@ -1,55 +1,126 @@
-.transfer-heading {
+.Moneytran-heading {
   background-color: black;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.transfer-heading img {
-  margin-top: -10px;
-  margin-left: -70px;
-  margin-right: 110px;
-  width: 50px;
-  padding: 15px;
-}
-.heading-money {
-  margin-top: 1px;
-  margin-right: 80px;
-}
-.main-content-transfer {
-  height: 53vh;
-  /* background-color: blue; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: white;
+  padding: 0.1px;
+  border-radius: 0px 0px 40px 40px;
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
 }
 
-.voneytransfer-card button {
-  margin: 15px;
-  height: auto;
-  width: 350px;
-  padding: 35px;
-  border: 2px solid black;
-  border-radius: 50px;
-  font-size: 25px;
-  font-weight: 800;
-  background-image: linear-gradient(45deg, #0046c75f, #ff2c7d3d);
+.Moneytran-heading-name {
+  font-size: 30px;
 }
-.voneytransfer-card button:hover {
-  margin: 15px;
-  height: auto;
-  width: 350px;
-  padding: 35px;
+
+@media (max-width: 768px) {
+  .Moneytran-heading {
+    border-radius: 0;
+  }
+
+  .Moneytran-heading-name {
+    font-size: 24px;
+  }
+}
+
+.Moneytran-body {
+  margin: 10px 0px 0px 0px;
+  /* border: 2px solid black; */
+  /* background-color: aqua; */
+  padding: 0px 40px 0px 40px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* text-align: center; */
+}
+.Moneytran-detail-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+  float: right;
+  height: 34%;
+  width: 100%;
+  /* background-color: rgb(30, 255, 0); */
+  padding: 0px 15px 18px 10px;
+  overflow: hidden;
+  margin-top: -630px;
+}
+.Moneytran-Personal-content-right-benificery-card{
+  margin: 27px 90px 10px 90px;
   border: 2px solid black;
-  border-radius: 50px;
-  font-size: 25px;
-  font-weight: 800;
+  border-radius: 35px;
+  height: 300px;
+  width: 600px;
+  float: right;
+  background-color: rgb(255, 0, 0);
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+
+}
+.Moneytran-Personal-content-right {
+  margin: 27px 90px 10px 90px;
+  border: 2px solid black;
+  border-radius: 35px;
+  height: 250px;
+  width: 450px;
+  float: right;
+  background-color: rgb(255, 213, 0);
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+}
+
+
+.Moneytran-Personal-detail-left {
+  /* flex-direction: column; */
+  display: flex;
+  float: left;
+  height: 1%;
+  background-color: rgb(255, 0, 238);
+}
+
+.transaction-Personal-content-left {
+  margin: 90px 0px 20px 0px;
+  border: 2px solid black;
+  border-radius: 35px;
+  height: 250px;
+  width: 550px;
+  float: left;
+  /* background-color: rgb(43, 0, 255); */
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+}
+.transaction-detail-down {
+  margin-top: 90px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 35px;
+  height: 470px;
+  width: 1450px;
+  float: right;
+  /* background-color: rgb(255, 213, 0); */
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+  overflow-y: auto;
+  /* max-height: 200px; */
+}
+.transaction-detail-down::-webkit-scrollbar {
+  width: 0em; /* Adjust the width as needed */
+  background-color: #f5f5f5; /* Set the background color of the scrollbar */
+}
+.scroll-heading {
+  background-color: black;
   color: white;
-  background-image: linear-gradient(45deg, #000000be, #000000);
+  margin-top: 30px;
+  margin-bottom: -100px;
+  padding: 10px;
+  width: 99%;
+  border-radius: 40px 40px 0px 0px;
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
 }
-.main-content-transfer.hidden {
-  display: none;
-}
-.main-content-transfer h1 {
-  color: black;
+.transaction-card-heading-box {
+  /* background-color: green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

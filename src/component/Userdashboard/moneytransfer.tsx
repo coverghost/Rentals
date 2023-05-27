@@ -82,7 +82,30 @@ const Moneytran = () => {
   console.log("api send data line 75------>>>", transferapi.success);
   return (
     <>
-      <div className="transfer-heading">
+      <div className="Moneytran-heading">
+        <h5>
+          <span className="Moneytran-heading-name">Transfer Money</span>{" "}
+        </h5>
+      </div>
+      <div className="Moneytran-body">
+        {/* up  */}
+        <div className="Moneytran-detail-right">
+          <div className="Moneytran-Personal-content-right-benificery-card">
+            <h2>Total Balance</h2>
+            <h3>
+              "heading h3 "
+            </h3>
+          </div>
+          <div className="Moneytran-Personal-content-right">
+            <h2>Total Debt</h2>
+            <h3>
+             heading h3
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div className="Moneytran-heading">
         <img src={image} alt="" onClick={() => screenchange("back")} />
         <h1 className="heading-money">Transfer Money</h1>
       </div>

@@ -9,6 +9,7 @@ import Usercard from "./usercard";
 import Moneytransfer from "./moneytransfer";
 import { MyContext } from "../../context/Context";
 import Profile from "./profile";
+import Moneytran from "./moneytransfer";
 // import userimage from"https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/profile-photos-4.jpg"
 
 interface IUser {
@@ -49,8 +50,8 @@ const Userdashboard = () => {
   const [getAllUser, setgetAllUser] = useState<any>();
   const [transactionscreen, settransactionscreen] = useState(false);
   const [cardscreen, setcardscreen] = useState(false);
-  const [passbookscreen, setpassbookscreen] = useState(true);
-  const [profilescreen, setprofilescreen] = useState(false);
+  const [passbookscreen, setpassbookscreen] = useState(false);
+  const [profilescreen, setprofilescreen] = useState(true);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -164,10 +165,9 @@ const Userdashboard = () => {
                 }}>Acounts</button>
             </li>
             <li>
-              <button className="side-nav-option">Transactions</button>
-            </li>
-            <li>
-              <button className="side-nav-option">Benificery</button>
+              <button className="side-nav-option"  onClick={() => {
+                  screenchange("transaction");
+                }}>Transactions</button>
             </li>
             <li>
               <button className="side-nav-option">Cards</button>
@@ -182,6 +182,11 @@ const Userdashboard = () => {
         <div className={`main-content ${passbookscreen ? " " : "hidden"}`}>
           <div className="profile-screen">
             <MoneyTransferForm userdetail={userdetail} />
+          </div>
+        </div>
+        <div className={`main-content ${transactionscreen ? " " : "hidden"}`}>
+          <div className="profile-screen">
+            <Moneytran />
           </div>
         </div>
       </div>
