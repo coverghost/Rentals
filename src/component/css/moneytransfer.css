@@ -57,9 +57,20 @@
   overflow: hidden;
   /* background-color: rgb(255, 0, 0); */
   box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+  overflow-y: scroll; 
+  max-height: 330px;
 
 }
+.Moneytran-Personal-content-right-benificery-card::-webkit-scrollbar {
+  
+  display: none;
+}
+.benificery-table {
+  /* background-color: red; */
+  margin-top: 45px;
+}
 .Moneytran-Personal-content-right-benificery-card h2{
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,6 +84,7 @@
   box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
 }
 .Moneytran-Personal-content-right-benificery-card h3{
+  /* position: fixed; */
   display: flex;
   justify-content: center;
   align-items: center;

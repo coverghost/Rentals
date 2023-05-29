@@ -186,7 +186,7 @@ const Userdashboard = () => {
         </div>
         <div className={`main-content ${transactionscreen ? " " : "hidden"}`}>
           <div className="profile-screen">
-            <Moneytran />
+            <Moneytran  />
           </div>
         </div>
       </div>

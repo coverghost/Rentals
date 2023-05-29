@@ -1,13 +1,22 @@
 import React, { useContext, useState } from "react";
 import "../css/nav.css";
 import { Button } from "react-native/types";
+import { dashboarService } from "../dashboardservice.tsx/dashboard";
 
-const BenifercyPopup = ({ onClose, userlist,token }: any) => {
-  console.log("userlist ---- from pop line 5 ------>>>>", userlist,token);
-  const handleLogin = () => {
-    // Handle login logic here
+const BenifercyPopup = ({ onClose, userlist, token }: any) => {
+  const [alluser,setalluser] = useState("")
+  let i = 1;
+  
+  const addben = async (userid:any) => {
+    console.log("user id from adben ------LInme 14",userid)
+    const value = userid;
+    try {
+      const senddata = await dashboarService.AddBeneficary(token, value);
+      setalluser(senddata);
+    } catch (error) {
+      console.error("Error fetching API data:", error);
+    }
   };
-  let i = 1
 
   return (
     <div className="BenifercyPopup-popup">
@@ -21,7 +30,18 @@ const BenifercyPopup = ({ onClose, userlist,token }: any) => {
         {userlist?.map((iteam: any, index: any) => (
           <div className="transaction-card" key={index}>
             <p>
-              {" "}{i++}{" --------"}{iteam?.personal?.name}{"----------------------------"}{<button>Add</button>}
+              {" ----- "}
+              {i++}
+              {" --------"}
+              {iteam?.personal?.name}
+              {"----------------------------"}
+              {iteam?.bankDetails?.upiId}
+              {"----------------------------"}
+
+
+              
+              {console.log("object",iteam?.userId)}
+              {<button onClick={()=>{addben(iteam?.userId)}}>{"add"}</button>}
             </p>
           </div>
         ))}

@@ -37,10 +37,34 @@ const transactionByUpi =async (token:any,value:any) => {
     }
 }
 
+const AddBeneficary =async (token:any,value:any) => {
+  try {
+      const response = await axios.post(api + "/add-beneficary", {
+        token,
+        value
+      });
+      const data = response.data;
+      return data 
+    } catch (error: any) {
+      return error
+    }
+}
+const listbeificery =async (token:any) => {
+  try {
+      const response = await axios.post(api + "/list-beificery-detail", {
+        token,
+      });
+      const data = response.data;
+      return data 
+    } catch (error: any) {
+      return error
+    }
+}
 
 export const dashboarService = {
     getUserData,
     getAllUser,
-    transactionByUpi
-
+    transactionByUpi,
+    AddBeneficary,
+    listbeificery
 }

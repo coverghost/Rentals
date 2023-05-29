@@ -14,6 +14,16 @@ type DebitCardProps = {
 };
 
 const Moneytran = () => {
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      console.log(" line 73 ----------->>>", storedToken);
+      setToken(storedToken);
+      list_beneficiary(storedToken);
+    }
+    Add_Beneficiary();
+  }, []);
+
   const { uniupi } = useContext(MyContext);
   const { setUniupi } = useContext(MyContext);
 
@@ -26,6 +36,7 @@ const Moneytran = () => {
   const [amount, setamount] = useState("");
   const [transferapi, settransferapi] = useState<any>("");
   const [allUser, setalluser] = useState<any>("");
+  const [allBenificery, setallBenificery] = useState<any>("");
 
   const { setClosepopup_benificer } = useContext(MyContext);
   const { closepopup_benificer } = useContext(MyContext);
@@ -37,6 +48,7 @@ const Moneytran = () => {
     setShowPopup(true);
   };
   const closePopup = () => {
+    list_beneficiary(token);
     setShowPopup(false);
   };
 
@@ -65,14 +77,15 @@ const Moneytran = () => {
         break;
     }
   };
-  useEffect(() => {
-    const storedToken = localStorage.getItem("token");
 
-    if (storedToken) {
-      setToken(storedToken);
+  const list_beneficiary = async (token: any) => {
+    try {
+      const senddata = await dashboarService.listbeificery(token);
+      setallBenificery(senddata);
+    } catch (error) {
+      console.error("Error fetching API data:", error);
     }
-    Add_Beneficiary()
-  }, []);
+  };
   // for upi transaction
   const handleUpiChange = (event: any) => {
     setUpi(event.target.value);
@@ -98,15 +111,21 @@ const Moneytran = () => {
   };
   const Add_Beneficiary = async () => {
     try {
-      const senddata = await dashboarService.getAllUser(
-      );
+      const senddata = await dashboarService.getAllUser();
       setalluser(senddata);
     } catch (error) {
       console.error("Error fetching API data:", error);
     }
   };
-  const userListData = (allUser?.Userlist)?(allUser?.Userlist):[]
-  console.log("api send data line 107------>>>", userListData);
+
+  const userListData = allUser?.Userlist ? allUser?.Userlist : [];
+  console.log(
+    "api send data line 107- allBenificery----->>>",
+    allBenificery.Benificerylist
+  );
+  const Benificerylist = allBenificery.Benificerylist
+    ? allBenificery.Benificerylist
+    : [];
   return (
     <>
       <div className="Moneytran-heading">
@@ -118,10 +137,34 @@ const Moneytran = () => {
         {/* up  */}
         <div className="Moneytran-detail-right">
           <div className="Moneytran-Personal-content-right-benificery-card">
-            <h2>Beneficiary </h2>
+            <h2>Beneficiary</h2>
             <h3>
               <img src={add_benificery} alt="" onClick={openPopup} />
             </h3>
+            <div className="benificery-table">
+              {Benificerylist.map((iteam: any, index: any) => (
+                <div key={index}>
+                  <table>
+                    <td>{"--"}</td>
+                    <td>
+                      <p>{iteam.personal.name}</p>
+                    </td>
+                    <td>{"--"}</td>
+                    <td>
+                      <p>{iteam.bankDetails.upiId}</p>
+                    </td>
+                    <td>{"--"}</td>
+                    <td>
+                      <button>Pay</button>
+                    </td>
+                    <td>{"--"}</td>
+                    <td>
+                      <button>delete</button>
+                    </td>
+                  </table>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="Moneytran-Personal-content-right">
             <h2>Total Debt</h2>
@@ -133,7 +176,11 @@ const Moneytran = () => {
           : showPopup && (
               <div className="moneytransfer-popup-container">
                 {" "}
-                <BenifercyPopup userlist ={userListData} token={token} onClose={closePopup} />
+                <BenifercyPopup
+                  userlist={userListData}
+                  token={token}
+                  onClose={closePopup}
+                />
               </div>
             )}
       </div>

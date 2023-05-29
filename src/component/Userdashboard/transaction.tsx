@@ -4,7 +4,7 @@ import "../css/transaction.css";
 
 const MoneyTransferForm = ({ userdetail }: any) => {
   
-  console.log("userdetail ---- line 11 --->", userdetail?.useracount[0].totaldebt);
+  console.log("userdetail ---- line 11 --->", userdetail?.useracount[0]);
   const data = userdetail?.userTransaction ? userdetail?.userTransaction : [];
   return (
     <>
@@ -19,11 +19,11 @@ const MoneyTransferForm = ({ userdetail }: any) => {
         <div className="transaction-detail-right">
           <div className="transaction-Personal-content-right">
             <h2>Total Balance</h2>
-            <h3>{(userdetail?.useracount[0].totalamount)?(userdetail?.useracount[0].totalamount):0}</h3>
+            <h3>{(userdetail?.useracount[0].totalamount)?(userdetail?.useracount[0].totalamount):"0"}</h3>
           </div>
           <div className="transaction-Personal-content-right">
             <h2>Total Debt</h2>
-            <h3>{(userdetail?.useracount[0].totaldebt)?(userdetail?.useracount[0].totaldebt):0}</h3>
+            <h3>{(userdetail?.useracount[0].totaldebt)?(userdetail?.useracount[0].totaldebt):"0"}</h3>
           </div>
           <div className="transaction-Personal-content-right">
             <h2>Total transaction</h2>
