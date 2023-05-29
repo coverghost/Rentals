@@ -21,7 +21,6 @@ const UserCard: React.FC<DebitCardProps> = ({
 
   const handleValue = (value: any) => {
     setUniupi(value);
-    console.log("Clicked - UPI ID - Line 20: ", value);
   };
 
   return (

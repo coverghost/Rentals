@@ -8,7 +8,6 @@ const BenifercyPopup = ({ onClose, userlist, token }: any) => {
   let i = 1;
   
   const addben = async (userid:any) => {
-    console.log("user id from adben ------LInme 14",userid)
     const value = userid;
     try {
       const senddata = await dashboarService.AddBeneficary(token, value);
@@ -40,7 +39,6 @@ const BenifercyPopup = ({ onClose, userlist, token }: any) => {
 
 
               
-              {console.log("object",iteam?.userId)}
               {<button onClick={()=>{addben(iteam?.userId)}}>{"add"}</button>}
             </p>
           </div>

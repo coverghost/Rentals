@@ -17,7 +17,6 @@ const Moneytran = () => {
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
-      console.log(" line 73 ----------->>>", storedToken);
       setToken(storedToken);
       list_beneficiary(storedToken);
     }
@@ -43,7 +42,6 @@ const Moneytran = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const openPopup = () => {
-    console.log("clicked by icon");
     setClosepopup_benificer(false);
     setShowPopup(true);
   };
@@ -53,7 +51,6 @@ const Moneytran = () => {
   };
 
   const screenchange = (value: any) => {
-    console.log("value---->>", value);
     switch (value) {
       case "upiid":
         setoptionscreen(false);
@@ -119,10 +116,7 @@ const Moneytran = () => {
   };
 
   const userListData = allUser?.Userlist ? allUser?.Userlist : [];
-  console.log(
-    "api send data line 107- allBenificery----->>>",
-    allBenificery.Benificerylist
-  );
+
   const Benificerylist = allBenificery.Benificerylist
     ? allBenificery.Benificerylist
     : [];
@@ -183,54 +177,64 @@ const Moneytran = () => {
                 />
               </div>
             )}
-      </div>
-
-      {/* <div className="Moneytran-heading">
-        <img src={image} alt="" onClick={() => screenchange("back")} />
-        <h1 className="heading-money">Transfer Money</h1>
-      </div> */}
-      {/* <div className={`main-content-transfer ${optionscreen ? "" : "hidden"}`}>
-        <div className="transaction-option">
-          <div className="voneytransfer-card">
-            <button onClick={() => screenchange("upiid")}>
-              Through Upi ID
-            </button>
+        <div className="Moneytran-Personal">
+          <div className="Moneytran-heading-transfer-upi">
+            <img src={image} alt="" onClick={() => screenchange("back")} />
+            <h1 className="heading-money">Transfer</h1>
           </div>
-          <div className="voneytransfer-card">
-            <button onClick={() => screenchange("bank")}>Through Bank</button>
+          <div
+            className={`main-content-transfer ${optionscreen ? "" : "hidden"}`}
+          >
+            <div className="transaction-option">
+              <div className="voneytransfer-card">
+                <button onClick={() => screenchange("upiid")}>
+                  Through Upi ID
+                </button>
+              </div>
+              <div className="voneytransfer-card">
+                <button onClick={() => screenchange("bank")}>
+                  Through Bank
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className={`main-content-transfer ${bankscreen ? "" : "hidden"}`}
+          >
+            <h1 className="">BANK Transfer</h1>
+          </div>
+          <div className={`main-content-transfer ${Upiscreen ? "" : "hidden"}`}>
+            <form onSubmit={handleSubmit} className="formm">
+              <div>
+                <input
+                  type="text"
+                  id="UPI"
+                  value={uniupi ? uniupi : upiid}
+                  onChange={handleUpiChange}
+                  required
+                  placeholder="Upi ID"
+                />
+                <input
+                  type="text"
+                  id="amount"
+                  value={amount}
+                  onChange={handleamountChange}
+                  required
+                  placeholder="Amount"
+                />
+              </div>
+              <button
+                onClick={sendmoney}
+                type="submit"
+                className="submit-button"
+              >
+                {"Send"}
+              </button>
+            </form>
           </div>
         </div>
-      </div> */}
-      {/*<div className={`main-content-transfer ${bankscreen ? "" : "hidden"}`}>
-        <h1 className="">BANK Transfer</h1>
-      </div>*/}
-      {/* <div className={`main-content-transfer ${Upiscreen ? "" : "hidden"}`}>
-    
-        <form onSubmit={handleSubmit} className="formm">
-          <div>
-            <input
-              type="text"
-              id="UPI"
-              value={uniupi ? uniupi : upiid}
-              onChange={handleUpiChange}
-              required
-              placeholder="Upi ID"
-            />
-            <input
-              type="text"
-              id="amount"
-              value={amount}
-              onChange={handleamountChange}
-              required
-              placeholder="Amount"
-            />
-          </div>
-          <button onClick={sendmoney} type="submit" className="submit-button">
-            {"Send"}
-          </button>
-        </form>
-       
-      </div> */}
+      </div>
     </>
   );
 };

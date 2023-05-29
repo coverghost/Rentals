@@ -4,7 +4,6 @@ import "../css/transaction.css";
 
 const MoneyTransferForm = ({ userdetail }: any) => {
   
-  console.log("userdetail ---- line 11 --->", userdetail?.useracount[0]);
   const data = userdetail?.userTransaction ? userdetail?.userTransaction : [];
   return (
     <>

@@ -45,7 +45,7 @@
   /* background-color: rgb(30, 255, 0); */
   padding: 0px 15px 18px 10px;
   overflow: hidden;
-  margin-top: -530px;
+  margin-top: -120px;
 }
 .Moneytran-Personal-content-right-benificery-card{
   margin: 27px 90px 10px 90px;
@@ -180,4 +180,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.Moneytran-Personal{
+  margin: 87px 90px 10px 90px;
+  border: 2px solid black;
+  border-radius: 35px;
+  height: 300px;
+  width: 600px;
+  float: right;
+  overflow: hidden;
+  /* background-color: rgb(255, 0, 0); */
+  box-shadow: 3px 10px 19px 4px rgba(10, 10, 245, 0.2);
+}
+.Moneytran-heading-transfer-upi{
+  height: 35px;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Moneytran-heading-transfer-upi img{
+  height: 35px;
+  /* float: left; */
+  margin-left: -50px;
+  /* background-color: red; */
+}
+.heading-money{
+  margin-left: 50px;
+  color: white;
+
 }

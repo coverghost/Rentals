@@ -75,7 +75,6 @@ function LoginForm() {
   // Login function
   const handleLogin = async () => {
     if (mobile.length < 10) {
-      console.log("invalidmobile number ");
       return;
     }
 

@@ -21,7 +21,6 @@ const Navbar = () => {
   const navigate = useNavigate();
 
 
-  console.log("token------>>>", unitoken);
 
   const openPopup = () => {
     setClosepopup(false);
@@ -40,7 +39,6 @@ const Navbar = () => {
     navigate("/") 
   };
 
-  console.log("from Navbar===closepopup =>", closepopup);
 
   return (
     <>

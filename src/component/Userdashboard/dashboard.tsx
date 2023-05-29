@@ -97,7 +97,6 @@ const Userdashboard = () => {
   const data: IUser[] = getAllUser?.Userlist;
 
   const screenchange = (value: any) => {
-    console.log("value -------- line 102=>",value)
     switch (value) {
       case "transaction":
         settransactionscreen(true);
@@ -131,7 +130,6 @@ const Userdashboard = () => {
         break;
     }
   };
-  // console.log("userdetail line 132 ---->>",((userdetail?userdetail:0)?.useracount[0]?.totalamount)?(userdetail?.useracount[0]?.totalamount):0)
   return (
     <>
       <div className="dashboard-screnn">

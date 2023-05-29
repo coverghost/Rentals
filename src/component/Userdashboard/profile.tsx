@@ -4,7 +4,6 @@ import open_image from "../image/open-eye.png"
 import close_image from "../image/close-eye.png"
 
 const Profile = ({ userdetail }: any) => {
-  console.log("userdetail----->", (userdetail?.user?.personal?.dob)?(userdetail?.user?.personal?.dob):"DD");
   const [showpasww ,setshowpassw] = useState(false)
   const showpassword = ()=>{
     setshowpassw(!showpasww)
