@@ -35,6 +35,8 @@ const Moneytran = () => {
   const [amount, setamount] = useState("");
   const [transferapi, settransferapi] = useState<any>("");
   const [allUser, setalluser] = useState<any>("");
+  const [allUsers, setallusers] = useState<any>("");
+
   const [allBenificery, setallBenificery] = useState<any>("");
 
   const { setClosepopup_benificer } = useContext(MyContext);
@@ -42,6 +44,7 @@ const Moneytran = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const openPopup = () => {
+    setallusers(allUsers);
     setClosepopup_benificer(false);
     setShowPopup(true);
   };
@@ -114,20 +117,17 @@ const Moneytran = () => {
       console.error("Error fetching API data:", error);
     }
   };
-  const delete_Beneficiary = async (value:any) => {
-    console.log("value-----line 118+++>",value)
+  const delete_Beneficiary = async (value: any) => {
+    console.log("value-----line 118+++>", value);
     try {
-      const senddata = await dashboarService.delete_beificery(
-        token,
-        value
-      );
+      const senddata = await dashboarService.delete_beificery(token, value);
       setalluser(senddata);
+      list_beneficiary(token);
     } catch (error) {
       console.error("Error fetching API data:", error);
     }
   };
-
-  const userListData = allUser?.Userlist ? allUser?.Userlist : [];
+  const userListData = allUsers?.Userlist ? allUsers?.Userlist : [];
 
   const Benificerylist = allBenificery.Benificerylist
     ? allBenificery.Benificerylist
@@ -161,15 +161,23 @@ const Moneytran = () => {
                     </td>
                     <td>{"--"}</td>
                     <td>
-                      <button onClick={()=>{
-                        setUniupi(iteam.bankDetails.upiId)
-                      }}>Pay</button>
+                      <button
+                        onClick={() => {
+                          setUniupi(iteam.bankDetails.upiId);
+                        }}
+                      >
+                        Pay
+                      </button>
                     </td>
                     <td>{"--"}</td>
                     <td>
-                      <button onClick={()=>{
-                        delete_Beneficiary(iteam.userId)
-                      }}>delete</button>
+                      <button
+                        onClick={() => {
+                          delete_Beneficiary(iteam.userId);
+                        }}
+                      >
+                        delete
+                      </button>
                     </td>
                   </table>
                 </div>
@@ -199,26 +207,9 @@ const Moneytran = () => {
             <h1 className="heading-money">Transfer</h1>
           </div>
           <div
-            className={`main-content-transfer ${optionscreen ? "" : "hidden"}`}
-          >
-            <div className="transaction-option">
-              <div className="voneytransfer-card">
-                <button onClick={() => screenchange("upiid")}>
-                  Through Upi ID
-                </button>
-              </div>
-              <div className="voneytransfer-card">
-                <button onClick={() => screenchange("bank")}>
-                  Through Bank
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div
             className={`main-content-transfer ${bankscreen ? "" : "hidden"}`}
           >
-            <h1 className="">BANK Transfer</h1>
+            <h1 className="">Upi Transfer</h1>
           </div>
           <div className={`main-content-transfer ${Upiscreen ? "" : "hidden"}`}>
             <form onSubmit={handleSubmit} className="formm">
