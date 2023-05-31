@@ -60,11 +60,24 @@ const listbeificery =async (token:any) => {
       return error
     }
 }
+const delete_beificery =async (token:any,value:any) => {
+  try {
+      const response = await axios.post(api + "/delete-benificery-id", {
+        token,
+        value
+      });
+      const data = response.data;
+      return data 
+    } catch (error: any) {
+      return error
+    }
+}
 
 export const dashboarService = {
     getUserData,
     getAllUser,
     transactionByUpi,
     AddBeneficary,
-    listbeificery
+    listbeificery,
+    delete_beificery
 }

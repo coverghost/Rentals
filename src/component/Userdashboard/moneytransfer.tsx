@@ -114,6 +114,18 @@ const Moneytran = () => {
       console.error("Error fetching API data:", error);
     }
   };
+  const delete_Beneficiary = async (value:any) => {
+    console.log("value-----line 118+++>",value)
+    try {
+      const senddata = await dashboarService.delete_beificery(
+        token,
+        value
+      );
+      setalluser(senddata);
+    } catch (error) {
+      console.error("Error fetching API data:", error);
+    }
+  };
 
   const userListData = allUser?.Userlist ? allUser?.Userlist : [];
 
@@ -149,11 +161,15 @@ const Moneytran = () => {
                     </td>
                     <td>{"--"}</td>
                     <td>
-                      <button>Pay</button>
+                      <button onClick={()=>{
+                        setUniupi(iteam.bankDetails.upiId)
+                      }}>Pay</button>
                     </td>
                     <td>{"--"}</td>
                     <td>
-                      <button>delete</button>
+                      <button onClick={()=>{
+                        delete_Beneficiary(iteam.userId)
+                      }}>delete</button>
                     </td>
                   </table>
                 </div>

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "../css/transaction.css";
 
 const MoneyTransferForm = ({ userdetail }: any) => {
+  console.log("userdetail++++++++++>>",userdetail)
   
   const data = userdetail?.userTransaction ? userdetail?.userTransaction : [];
   return (
