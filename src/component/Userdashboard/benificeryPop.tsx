@@ -6,7 +6,7 @@ import { dashboarService } from "../dashboardservice.tsx/dashboard";
 const BenifercyPopup = ({ onClose, userlist, token }: any) => {
   const [alluser,setalluser] = useState("")
   let i = 1;
-  
+  console.log("alluser__________________________++++++++++___________ --->",userlist)
   const addben = async (userid:any) => {
     const value = userid;
     try {

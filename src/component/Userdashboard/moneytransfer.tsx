@@ -44,7 +44,7 @@ const Moneytran = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const openPopup = () => {
-    setallusers(allUsers);
+    setallusers(allUser);
     setClosepopup_benificer(false);
     setShowPopup(true);
   };
@@ -121,13 +121,18 @@ const Moneytran = () => {
     console.log("value-----line 118+++>", value);
     try {
       const senddata = await dashboarService.delete_beificery(token, value);
-      setalluser(senddata);
+      // setalluser(senddata);
       list_beneficiary(token);
     } catch (error) {
       console.error("Error fetching API data:", error);
     }
   };
-  const userListData = allUsers?.Userlist ? allUsers?.Userlist : [];
+
+  const data_list = allUser?allUser:allUsers
+  console.log("after relode--->",allUser)
+  console.log("before relode--->",allUsers)
+
+  const userListData = data_list?.Userlist ? data_list?.Userlist : [];
 
   const Benificerylist = allBenificery.Benificerylist
     ? allBenificery.Benificerylist
